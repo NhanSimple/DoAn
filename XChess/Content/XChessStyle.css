@@ -1,0 +1,55 @@
+﻿
+
+/*toast css*/
+#toast-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+}
+
+.toast {
+    min-width: 250px;
+    margin-bottom: 10px;
+    padding: 15px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transform: translateX(100%);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+    .toast.show {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    .toast button.close-btn {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        width: 20px;
+        height: 20px;
+        background: transparent;
+        color: white;
+        border: none;
+        font-size: 18px;
+        line-height: 1;
+        font-weight: bold;
+        cursor: pointer;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s ease;
+    }
+    .toast .close-btn:hover {
+        background-color: #EED2EE;
+        border-radius: 50%;
+    }
+    .toast .close-btn:active {
+        border-radius: 50%; /* Tạo bo tròn cho nút khi nhấn */
+        background-color: #EED2EE;
+    }
