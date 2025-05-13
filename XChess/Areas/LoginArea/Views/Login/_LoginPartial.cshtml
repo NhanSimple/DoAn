@@ -1,0 +1,78 @@
+﻿@model XChess.Areas.LoginArea.Model.AccoutInfo
+
+<div class="modal-dialog">
+    @using (Ajax.BeginForm("Login", "Login", new { @area = "LoginArea" }, new AjaxOptions()
+    {
+        HttpMethod = "POST",
+        OnFailure = "AjaxLoginError",
+        OnSuccess = "AjaxLoginSuccess",
+    }, new { id = "loginUserForm", enctype = "multipart/form-data" }))
+
+    {
+        @Html.AntiForgeryToken()
+        //HtmlHelper.UnobtrusiveJavaScriptEnabled = false;
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="center col-md-12">
+                    <h4 class="modal-title">Đăng nhập</h4>
+                </div>
+            </div>
+            <div class="modal-body">
+                <!-- Email input -->
+                <div data-mdb-input-init class="form-outline mb-4">
+                    <label class="control-label col-sm-4">Username <span class="red">*</span></label>
+                    <div class="col-sm-12">
+                        @Html.TextBoxFor(m => m.userName, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.userName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <!-- Password input -->
+                <div data-mdb-input-init class="form-outline mb-4">
+                    <label class="control-label col-sm-4">Password <span class="red">*</span></label>
+                    <div class="col-sm-12">
+                        @Html.PasswordFor(m => m.password, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.password, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-12" id="thongbao">
+                    </div>
+                </div>
+                <!-- 2 column grid layout for inline styling -->
+                <div class="row mb-4">
+                    <div class="col d-flex justify-content-center">
+                        <!-- Checkbox -->
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="form2Example31" checked />
+                            <label class="form-check-label" for="form2Example31"> Remember me </label>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <!-- Simple link -->
+                        <a href="#!">Forgot password?</a>
+                    </div>
+                </div>
+
+
+
+                <!-- Register buttons -->
+                <div class="text-center">
+                    <p>Not a member? <a href="javascript:void(0)" onclick="CreateAction('/UserArea/User/Create')">Register</a></p>
+
+
+                </div>
+
+            </div>
+
+            <div class="modal-footer center"> 
+                    <button type="submit" class="btn  btn-primary">Đăng nhập</button>
+
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Đóng</button>
+            </div>
+        </div>
+    }
+
+</div>
