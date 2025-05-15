@@ -2,20 +2,12 @@
     ViewBag.Title = "XChess PVP";
     Layout = "~/Views/Shared/_PlayLayout.cshtml";
 }
-<div class="wrapper">
-    <div class="left-box">
-        <div class="chessboard" id="chessboard">
-        </div>
-
-    </div>
-    <div class="right-boxes">
-        <div class="small-box"></div>
-        <div class="small-box"></div>
-    </div>
+<div class="chessboard-container">
+    <svg id="chessboard" class="chessboard" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" preserveAspectRatio="xMidYMid meet"></svg>
 </div>
 @section scripts{
     <script>
-
+        
       
     </script>
 

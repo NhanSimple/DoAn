@@ -179,9 +179,18 @@
     <Content Include="Areas\PVPArea\Views\PVP\Index.cshtml" />
     <None Include="Views\Shared\_ModalPartial.cshtml" />
     <Content Include="Content\BanCo.css" />
-    <Content Include="Content\Images\anh_gai_xinh_deo_kinh_can_24.jpg" />
-    <Content Include="Content\Images\anh_gai_xinh_tiktok_500x666.jpg" />
-    <Content Include="Content\Images\hinh-nen-gai-xinh.jpg" />
+    <Content Include="Content\Images\bb.svg" />
+    <Content Include="Content\Images\bk.svg" />
+    <Content Include="Content\Images\bn.svg" />
+    <Content Include="Content\Images\bp.svg" />
+    <Content Include="Content\Images\bq.svg" />
+    <Content Include="Content\Images\br.svg" />
+    <Content Include="Content\Images\wb.svg" />
+    <Content Include="Content\Images\wk.svg" />
+    <Content Include="Content\Images\wn.svg" />
+    <Content Include="Content\Images\wp.svg" />
+    <Content Include="Content\Images\wq.svg" />
+    <Content Include="Content\Images\wr.svg" />
     <Content Include="Scripts\ChessBoard.js" />
     <Content Include="Views\Shared\_StartLayout.cshtml" />
   </ItemGroup>
