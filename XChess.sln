@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XChess.Repository", "XChess
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XChess.Service", "XChess.Service\XChess.Service.csproj", "{F8DF5E57-85C3-479A-89F2-81085A0B2732}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonHelper", "CommonHelper\CommonHelper.csproj", "{9EBF254F-E96B-442D-B781-625FF6FF0AFE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XChess.Engine", "XChess.Engine\XChess.Engine.csproj", "{98364839-0B27-4804-8E73-752D4A807D55}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{F8DF5E57-85C3-479A-89F2-81085A0B2732}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F8DF5E57-85C3-479A-89F2-81085A0B2732}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F8DF5E57-85C3-479A-89F2-81085A0B2732}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9EBF254F-E96B-442D-B781-625FF6FF0AFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9EBF254F-E96B-442D-B781-625FF6FF0AFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9EBF254F-E96B-442D-B781-625FF6FF0AFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9EBF254F-E96B-442D-B781-625FF6FF0AFE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98364839-0B27-4804-8E73-752D4A807D55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98364839-0B27-4804-8E73-752D4A807D55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98364839-0B27-4804-8E73-752D4A807D55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98364839-0B27-4804-8E73-752D4A807D55}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

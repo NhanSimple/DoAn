@@ -28,7 +28,7 @@ namespace XChess
             builder.RegisterModule(new RepositoryModule());
             builder.RegisterModule(new EFModule());
             builder.RegisterModule(new ServiceModule());
-
+            builder.RegisterModule(new EngineModule());
 
             var container = builder.Build();
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));

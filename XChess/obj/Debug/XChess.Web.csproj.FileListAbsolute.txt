@@ -218,3 +218,6 @@ D:\DoAnTotNghiep\Code\XChess\XChess\obj\Debug\XChess.Web.csproj.CoreCompileInput
 D:\DoAnTotNghiep\Code\XChess\XChess\obj\Debug\XChess.Web.csproj.CopyComplete
 D:\DoAnTotNghiep\Code\XChess\XChess\obj\Debug\XChess.dll
 D:\DoAnTotNghiep\Code\XChess\XChess\obj\Debug\XChess.pdb
+D:\DoAnTotNghiep\Code\XChess\XChess\bin\Engines\stockfish.exe
+D:\DoAnTotNghiep\Code\XChess\XChess\bin\XChess.Engine.dll
+D:\DoAnTotNghiep\Code\XChess\XChess\bin\XChess.Engine.pdb

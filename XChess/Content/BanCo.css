@@ -1,16 +1,16 @@
 ﻿.chessboard-container {
-    width: 100%;
-    max-width: 800px;
-    aspect-ratio: 1/1;
+    position: relative;
+    width: auto;
+    height: auto;
+    max-width: 560px; /* giữ tỷ lệ 1:1 */
     border: 2px solid #000;
-    background:red;
-    margin:0 auto;
+    margin:10px auto ;
+  /*  aaa*/
 }
 
 .chessboard {
     width: 100%;
     height: 100%;
-    display: block;
 }
 
 .white-square {
@@ -19,4 +19,14 @@
 
 .black-square {
     fill: #b58863;
+}
+
+.highlight-origin {
+    fill: #f6f669;
+}
+
+.highlight-destination {
+    fill: #f6f669;
+    stroke: #ff6666;
+    stroke-width: 2;
 }

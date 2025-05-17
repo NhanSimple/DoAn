@@ -11,7 +11,10 @@ namespace XChess.Model.Entities
         public int Id { get; set; }
         public int GameId { get; set; }
         public int MoveNumber { get; set; }
-        public string From { get; set; } 
-        public string To { get; set; }
+        public string FenBefore { get; set; }  
+        public string FenAfter { get; set; }     
+        public string MoveUci { get; set; }      // e.g., "e2e4", "g1f3"
+        public DateTime PlayedAt { get; set; }   // Thời điểm thực hiện nước đi
+        public string PlayerId { get; set; }
     }
 }

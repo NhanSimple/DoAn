@@ -155,6 +155,8 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Chess\ChessAreaRegistration.cs" />
+    <Compile Include="Areas\Chess\Controllers\ChessController.cs" />
     <Compile Include="Areas\CommonConfigurationArea\CommonConfigurationAreaAreaRegistration.cs" />
     <Compile Include="Areas\LoginArea\Controllers\LoginController.cs" />
     <Compile Include="Areas\LoginArea\LoginAreaAreaRegistration.cs" />
@@ -169,9 +171,13 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Modules\EFModule.cs" />
+    <Compile Include="Modules\EngineModule.cs" />
     <Compile Include="Modules\RepositoryModule.cs" />
     <Compile Include="Modules\ServiceModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Content Include="Areas\Chess\Controllers\stockfish.exe" />
+    <Content Include="Areas\Chess\Views\web.config" />
+    <Content Include="libman.json" />
     <None Include="Views\Shared\_PlayLayout.cshtml" />
     <Content Include="Areas\LoginArea\Views\web.config" />
     <Content Include="Areas\LoginArea\Views\Login\_LoginPartial.cshtml" />
@@ -191,6 +197,9 @@
     <Content Include="Content\Images\wp.svg" />
     <Content Include="Content\Images\wq.svg" />
     <Content Include="Content\Images\wr.svg" />
+    <Content Include="Engines\stockfish.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Scripts\ChessBoard.js" />
     <Content Include="Views\Shared\_StartLayout.cshtml" />
   </ItemGroup>
@@ -258,6 +267,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Chess\Data\" />
+    <Folder Include="Areas\Chess\Views\Shared\" />
     <Folder Include="Areas\CommonConfigurationArea\Controllers\" />
     <Folder Include="Areas\CommonConfigurationArea\Data\" />
     <Folder Include="Areas\CommonConfigurationArea\Model\" />
@@ -298,6 +309,10 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\XChess.Engine\XChess.Engine.csproj">
+      <Project>{98364839-0b27-4804-8e73-752d4a807d55}</Project>
+      <Name>XChess.Engine</Name>
+    </ProjectReference>
     <ProjectReference Include="..\XChess.Model\XChess.Model.csproj">
       <Project>{e3c02e65-1333-4522-bc13-f556c16f76fd}</Project>
       <Name>XChess.Model</Name>

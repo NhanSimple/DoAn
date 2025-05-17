@@ -1,0 +1,6 @@
+D:\DoAnTotNghiep\Code\XChess\XChess.Engine\bin\Debug\XChess.Engine.dll
+D:\DoAnTotNghiep\Code\XChess\XChess.Engine\bin\Debug\XChess.Engine.pdb
+D:\DoAnTotNghiep\Code\XChess\XChess.Engine\obj\Debug\XChess.Engine.csproj.AssemblyReference.cache
+D:\DoAnTotNghiep\Code\XChess\XChess.Engine\obj\Debug\XChess.Engine.csproj.CoreCompileInputs.cache
+D:\DoAnTotNghiep\Code\XChess\XChess.Engine\obj\Debug\XChess.Engine.dll
+D:\DoAnTotNghiep\Code\XChess\XChess.Engine\obj\Debug\XChess.Engine.pdb

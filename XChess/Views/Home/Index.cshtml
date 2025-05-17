@@ -51,9 +51,9 @@
                 <div>PVP</div>
             </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-3"  onclick="testMakeMove()">
             <div class="block small-box">
-                <div>PVP</div>
+                <div>Test Make move</div>
             </div>
         </div>
         <div class="col-md-3">
@@ -76,6 +76,22 @@
 </div>-->
 @section scripts {
     <script>
+        function testMakeMove() {
+            $.ajax({
+                url: '/Chess/Chess/MakeMove', // Area = Chess, Controller = Chess
+                type: 'POST',
+                data: {
+                    fen: "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", // ví dụ: FEN bàn cờ lúc đầu
+                    move: "e2e4" // ví dụ nước đi
+                },
+                success: function (response) {
+                    alert("Nước đi hợp lệ? " + response.legal);
+                },
+                error: function (xhr, status, error) {
+                    alert("Lỗi: " + error);
+                }
+            });
+        }
         @*$(document).ready(function () {
 
             console.log('jQuery is ready!');
