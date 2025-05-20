@@ -1,12 +1,14 @@
 ﻿const board = document.querySelector(".chessboard");
 const tileSize = 40;
 let boardState = getInitialBoardState();
-
 let selectedPiece = null;
 let offsetX = 0;
 let offsetY = 0;
 let previousOriginTile = null;
 let destinationTile = null;
+let fen = boardStateToFEN(getInitialBoardState(), 0);
+let move = null;
+let turn = 0;
 
 function getInitialBoardState() {
     return [
@@ -139,11 +141,23 @@ function stopDragging(e) {
         selectedPiece.setAttribute("y", oldRow * tileSize);
     } else {
         // Cập nhật trạng thái bàn cờ
+        // đổi lượt
+
+
         boardState[newRow][newCol] = boardState[oldRow][oldCol];
         boardState[oldRow][oldCol] = null;
+        move = toChessNotation(oldRow, oldCol) + toChessNotation(newRow, newCol);
+        console.log(turn)
+        console.log(fen)
+        console.log(move)
 
+        checkMove(fen, move)
+        turn++;
+        fen = boardStateToFEN(boardState, turn);
+        console.log(fen)
         // Render lại bàn cờ với trạng thái mới
         renderBoard(boardState);
+
 
         // Highlight ô đích
         if (destinationTile) destinationTile.classList.remove("highlight-destination");
@@ -152,6 +166,67 @@ function stopDragging(e) {
 
     selectedPiece = null;
 }
+
+
+function boardStateToFEN(boardState, turn) {
+    const pieceMap = {
+        'br': 'r', 'bn': 'n', 'bb': 'b', 'bq': 'q', 'bk': 'k', 'bp': 'p',
+        'wr': 'R', 'wn': 'N', 'wb': 'B', 'wq': 'Q', 'wk': 'K', 'wp': 'P'
+    };
+
+    let fen = '';
+
+    for (let row of boardState) {
+        let emptyCount = 0;
+        for (let cell of row) {
+            if (cell === null) {
+                emptyCount++
+            } else {
+                if (emptyCount > 0) {
+                    fen += emptyCount
+                    emptyCount = 0
+                }
+                fen += pieceMap[cell]
+            }
+        }
+        if (emptyCount > 0) {
+            fen += emptyCount;
+        }
+        fen += '/'
+    }
+
+    fen = fen.slice(0, -1); // Xoá dấu '/' cuối cùng
+
+    // Thêm các thông tin còn lại để FEN hợp lệ (mặc định ban đầu):
+    // "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"
+    fen += ` ${turn % 2 == 0 ? 'w' : 'b'} KQkq - 0 1`;
+    return fen;
+}
+
+
+function checkMove(fen, move) {
+    $.ajax({
+        url: '/Chess/Chess/MakeMove',
+        type: 'POST',
+        data: {
+            fen: fen, // ví dụ: FEN bàn cờ lúc đầu
+            move: move // ví dụ nước đi
+        },
+        success: function (response) {
+            alert("kết quả kiểm tra: " + response.legal);
+        },
+        error: function (xhr, status, error) {
+            alert("Lỗi: " + error);
+        }
+    });
+}
+
+function toChessNotation(row, col) {
+    const files = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
+    const ranks = ['8', '7', '6', '5', '4', '3', '2', '1'];
+    return files[col] + ranks[row];
+}
+
 
 board.addEventListener("mousedown", startDragging);
 board.addEventListener("mousemove", dragging);

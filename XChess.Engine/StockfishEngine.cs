@@ -55,14 +55,23 @@ namespace XChess.Engine
         public async Task<bool> IsMoveLegal(string fen, string moveUci)
         {
             SendCommand($"position fen {fen}");
-            SendCommand("go depth 1");
+            SendCommand("go perft 1");
 
             string line;
             while ((line = await ReadOutputAsync()) != null)
             {
-                if (line.StartsWith("bestmove"))
+                if (line.StartsWith("Nodes searched:"))
+                    break;
+
+                if (line.Contains(":"))
                 {
-                    return line.Contains(moveUci);
+                    var parts = line.Split(':');
+                    if (parts.Length >= 1)
+                    {
+                        var move = parts[0].Trim();
+                        if (move == moveUci)
+                            return true;
+                    }
                 }
             }
 
