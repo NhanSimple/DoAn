@@ -22,13 +22,9 @@
 }
 
 .highlight-origin {
-    fill: #f6f669;
-    stroke: yellow;
-    stroke-width: 2;
+    fill: #808000;
 }
 
 .highlight-destination {
     fill: #f6f669;
-    stroke: yellow;
-    stroke-width: 2;
 }

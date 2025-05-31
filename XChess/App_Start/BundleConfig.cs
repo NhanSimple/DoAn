@@ -13,6 +13,7 @@ namespace XChess
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
+            
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at https://modernizr.com to pick only the tests you need.
@@ -31,6 +32,8 @@ namespace XChess
            bundles.Add(new ScriptBundle("~/assets/appjs").Include(
                       "~/Scripts/Common.js",
                       "~/Scripts/jquery.unobtrusive-ajax.min.js"));
+            bundles.Add(new ScriptBundle("~/Scripts/Chessjs").Include(
+                      "~/Scripts/Chess.js"));
             bundles.Add(new ScriptBundle("~/Scripts/ChessBoardjs").Include(
                       "~/Scripts/ChessBoard.js"));
             

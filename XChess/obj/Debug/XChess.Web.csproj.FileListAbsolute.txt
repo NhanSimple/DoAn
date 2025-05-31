@@ -221,3 +221,8 @@ D:\DoAnTotNghiep\Code\XChess\XChess\obj\Debug\XChess.pdb
 D:\DoAnTotNghiep\Code\XChess\XChess\bin\Engines\stockfish.exe
 D:\DoAnTotNghiep\Code\XChess\XChess\bin\XChess.Engine.dll
 D:\DoAnTotNghiep\Code\XChess\XChess\bin\XChess.Engine.pdb
+D:\DoAnTotNghiep\Code\XChess\XChess\bin\AutoMapper.dll
+D:\DoAnTotNghiep\Code\XChess\XChess\bin\System.ValueTuple.dll
+D:\DoAnTotNghiep\Code\XChess\XChess\bin\AutoMapper.pdb
+D:\DoAnTotNghiep\Code\XChess\XChess\bin\AutoMapper.xml
+D:\DoAnTotNghiep\Code\XChess\XChess\bin\System.ValueTuple.xml
