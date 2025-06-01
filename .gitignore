@@ -11,3 +11,6 @@ obj/
 # DLLs and executables
 *.dll
 *.pdb
+
+# Thư mục tạm hoặc cache
+*.vsidx
