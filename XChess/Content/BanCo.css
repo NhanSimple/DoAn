@@ -4,8 +4,8 @@
     height: auto;
     max-width: 560px; /* giữ tỷ lệ 1:1 */
     border: 2px solid #000;
-    margin:10px auto ;
-  /*  aaa*/
+    margin: 10px auto;
+    /*  aaa*/
 }
 
 .chessboard {
@@ -21,10 +21,22 @@
     fill: #b58863;
 }
 
+.chessboard.dragging-active .white-square:hover,
+.chessboard.dragging-active .black-square:hover {
+    stroke: dimgray;
+    stroke-width: 2;
+    cursor: pointer;
+    transition: stroke 0.1s ease-in-out, stroke-width 0.1s ease-in-out;
+}
+
 .highlight-origin {
     fill: #808000;
 }
 
 .highlight-destination {
     fill: #f6f669;
+}
+
+.piece.dragging {
+    pointer-events: none;
 }

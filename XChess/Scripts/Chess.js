@@ -1,8 +1,23 @@
 ﻿// Global mapping
-
+function getInitialBoardState() {
+    return [
+        ['br', 'bn', 'bb', 'bq', 'bk', 'bb', 'bn', 'br'],
+        ['bp', 'bp', 'bp', 'bp', 'bp', 'bp', 'bp', 'bp'],
+        [null, null, null, null, null, null, null, null],
+        [null, null, null, null, null, null, null, null],
+        [null, null, null, null, null, null, null, null],
+        [null, null, null, null, null, null, null, null],
+        ['wp', 'wp', 'wp', 'wp', 'wp', 'wp', 'wp', 'wp'],
+        ['wr', 'wn', 'wb', 'wq', 'wk', 'wb', 'wn', 'wr']
+    ];
+}
+function coordsToSquare(row, col) {
+    const file = String.fromCharCode('a'.charCodeAt(0) + col);
+    const rank = 8 - row;
+    return file + rank;
+}
 
 // Đảo ngược pieceMap để dùng cho FEN → boardState
-
 const pieceMap = {
     'br': 'r', 'bn': 'n', 'bb': 'b', 'bq': 'q', 'bk': 'k', 'bp': 'p',
     'wr': 'R', 'wn': 'N', 'wb': 'B', 'wq': 'Q', 'wk': 'K', 'wp': 'P'
@@ -18,6 +33,219 @@ function getLogicalCoords(row, col, flipped) {
     };
 }
 
+function getValidMoves(boardState, row, col) {
+    const piece = boardState[row][col];
+    if (!piece) return [];
+
+    const type = piece[1]; // ví dụ: 'p', 'r', 'n', ...
+
+    switch (type) {
+        case 'k':
+            return getValidMovesKing(boardState, row, col);
+        case 'p':
+            return getValidMovesPawn(boardState, row, col);
+        case 'r':
+            return getValidMovesRook(boardState, row, col);
+        case 'n':
+            return getValidMovesKnight(boardState, row, col);
+        case 'b':
+            return getValidMovesBishop(boardState, row, col);
+        case 'q':
+            return getValidMovesQueen(boardState, row, col);
+        default:
+            return [];
+    }
+}
+function getValidMovesPawn(boardState, row, col) {
+    const moves = [];
+    const piece = boardState[row][col];
+    const color = piece[0]; // 'w' hoặc 'b'
+    const direction = color === 'w' ? -1 : 1; // trắng đi lên (giảm row), đen đi xuống (tăng row)
+    const startRow = color === 'w' ? 6 : 1;   // vị trí ban đầu của tốt
+
+    // 1. Đi thẳng 1 ô nếu trống
+    const forwardRow = row + direction;
+    if (forwardRow >= 0 && forwardRow <= 7 && !boardState[forwardRow][col]) {
+        moves.push({ row: forwardRow, col: col });
+
+        // 2. Đi thẳng 2 ô nếu ở hàng xuất phát và 2 ô trống
+        if (row === startRow && !boardState[forwardRow + direction][col]) {
+            moves.push({ row: forwardRow + direction, col: col });
+        }
+    }
+
+    // 3. Bắt chéo 2 bên nếu có quân địch
+    for (let dc of [-1, 1]) {
+        const c = col + dc;
+        if (c < 0 || c > 7) continue;
+        const r = forwardRow;
+        if (r >= 0 && r <= 7) {
+            const target = boardState[r][c];
+            if (target && target[0] !== color) {
+                moves.push({ row: r, col: c });
+            }
+        }
+    }
+
+    // 4. Bắt tốt qua đường (en passant)
+    // enPassantTarget là {row, col} của ô mà tốt đối phương vừa nhảy qua
+    //if (enPassantTarget) {
+    //    if (Math.abs(enPassantTarget.col - col) === 1 && enPassantTarget.row === row) {
+    //        // Vị trí tốt bên cạnh vừa nhảy 2 bước
+    //        const captureRow = row + direction;
+    //        if (captureRow >= 0 && captureRow <= 7) {
+    //            moves.push({ row: captureRow, col: enPassantTarget.col });
+    //        }
+    //    }
+    //}
+    return moves;
+}
+
+// tượng - bishop
+function getValidMovesBishop(boardState, row, col) {
+    const moves = [];
+    const piece = boardState[row][col];
+    const color = piece[0];
+    const directions = [
+        [-1, 1],  // ↗️
+        [1, 1],   // ↘️
+        [1, -1],  // ↙️
+        [-1, -1]  // ↖️
+    ];
+
+    for (const [dx, dy] of directions) {
+        let r = row + dx;
+        let c = col + dy;
+        while (r >= 0 && r <= 7 && c >= 0 && c <= 7) {
+            const target = boardState[r][c];
+            if (target === null) {
+                moves.push({ row: r, col: c });
+            } else {
+                if (target[0] !== color) {
+                    moves.push({ row: r, col: c });
+                }
+                break;
+            }
+            r += dx;
+            c += dy;
+        }
+    }
+    return moves;
+}
+
+//mã - kninght
+function getValidMovesKnight(boardState, row, col) {
+    const moves = [];
+    const piece = boardState[row][col];
+    const color = piece[0];
+    const directions = [
+        [-2, -1], [-2, 1],
+        [-1, -2], [-1, 2],
+        [2, -1], [2, 1],
+        [1, -2], [1, 2]
+    ];
+    for (const [dx, dy] of directions) {
+        const r = row + dx;
+        const c = col + dy;
+        if (r >= 0 && r <= 7 && c >= 0 && c <= 7) {
+            const target = boardState[r][c];
+            if (!target || target[0] !== color) {
+                moves.push({ row: r, col: c });
+            }
+        }
+    }
+    return moves;
+}
+
+//xe - rook 
+function getValidMovesRook(boardState, row, col) {
+    const moves = [];
+    const piece = boardState[row][col];
+    const color = piece[0];
+    const directions = [
+        [-1, 0],
+        [1, 0],
+        [0, -1],
+        [0, 1],
+    ];
+    for (const [dx, dy] of directions) {
+        let r = row + dx;
+        let c = col + dy;
+        while (r >= 0 && r <= 7 && c >= 0 && c <= 7) {
+            const target = boardState[r][c];
+            if (!target) {
+                moves.push({ row: r, col: c });
+            } else {
+                if (target[0] !== color) {
+                    moves.push({ row: r, col: c })
+                };
+                break;
+            }
+            r += dx;
+            c += dy;
+        }
+    }
+
+    return moves;
+}
+
+//vua - king
+function getValidMovesKing(boardState, row, col) {
+    const moves = [];
+    const piece = boardState[row][col];
+    const color = piece[0];
+    const directions = [
+        [-1, 0], [1, 0],
+        [0, -1], [0, 1],
+        [-1, 1], [1, 1],
+        [1, -1], [-1, -1]
+    ];
+    for (const [dx, dy] of directions) {
+        const r = row + dx;
+        const c = col + dy;
+        if (r >= 0 && r <= 7 && c >= 0 && c <= 7) {
+            const target = boardState[r][c];
+            if (!target || target[0] !== color) {
+                moves.push({ row: r, col: c });
+            }
+        }
+    }
+
+    return moves;
+}
+
+//hậu - queen
+function getValidMovesQueen(boardState, row, col) {
+    const moves = [];
+    const piece = boardState[row][col];
+    if (!piece) return moves;
+    const color = piece[0];
+    const directions = [
+        [-1, 0], [1, 0],
+        [0, -1], [0, 1],
+        [-1, 1], [1, 1],
+        [1, -1], [-1, -1]
+    ];
+    for (const [dx, dy] of directions) {
+        let r = row + dx;
+        let c = col + dy;
+        while (r >= 0 && r <= 7 && c >= 0 && c <= 7) {
+            const target = boardState[r][c];
+            if (!target) {
+                moves.push({ row: r, col: c });
+            } else {
+                if (target[0] !== color) {
+                    moves.push({ row: r, col: c });
+                }
+                break;
+            }
+            r += dx;
+            c += dy;
+        }
+    }
+
+    return moves;
+}
 function boardStateToFEN(boardState, turn) {
     let fen = '';
     for (let row of boardState) {
@@ -60,6 +288,11 @@ function fenToBoardState(fen) {
     }
 }
 
+// cập nhật boarState sau mỗi lần di chuyển 
+function updateBoardState(boardState, fromRow, fromCol, toRow, toCol) {
+    boardState[toRow][toCol] = boardState[fromRow][fromCol];
+    boardState[fromRow][fromCol] = null;
+}
 
 //function getPawnMoves(row, col, board) {
 //    let moves = [];

@@ -11,26 +11,12 @@ let move = null;
 let turn = 0;
 let currentTurn = 'w';
 let draggedPiece = null;
+const scale = 0.8;
+const chessSize = squareSize * scale;
+const offset = (squareSize - chessSize) / 2;// khoảng cách từ ô tới quân cờ 
+const offsetCenter = chessSize / 2;
 
 
-function getInitialBoardState() {
-    return [
-        ['br', 'bn', 'bb', 'bq', 'bk', 'bb', 'bn', 'br'],
-        ['bp', 'bp', 'bp', 'bp', 'bp', 'bp', 'bp', 'bp'],
-        [null, null, null, null, null, null, null, null],
-        [null, null, null, null, null, null, null, null],
-        [null, null, null, null, null, null, null, null],
-        [null, null, null, null, null, null, null, null],
-        ['wp', 'wp', 'wp', 'wp', 'wp', 'wp', 'wp', 'wp'],
-        ['wr', 'wn', 'wb', 'wq', 'wk', 'wb', 'wn', 'wr']
-    ];
-}
-
-function coordsToSquare(row, col) {
-    const file = String.fromCharCode('a'.charCodeAt(0) + col);
-    const rank = 8 - row;
-    return file + rank;
-}
 
 
 function drawBoard() {
@@ -49,7 +35,6 @@ function drawBoard() {
             rect.dataset.square = squareName;
             rect.dataset.row = row;
             rect.dataset.col = col;
-
             board.appendChild(rect);
         }
     }
@@ -68,25 +53,32 @@ function renderChess(state) {
 
             const img = document.createElementNS("http://www.w3.org/2000/svg", "image");
             img.setAttribute("href", `/Content/Images/${piece}.svg`);
-            img.setAttribute("x", col * squareSize);
-            img.setAttribute("y", row * squareSize);
-            img.setAttribute("width", squareSize);
-            img.setAttribute("height", squareSize);
+            img.setAttribute("x", col * squareSize + offset);
+            img.setAttribute("y", row * squareSize + offset);
+            img.setAttribute("width", chessSize);
+            img.setAttribute("height", chessSize);
             img.setAttribute("class", "piece");
             img.setAttribute("id", pieceMap[piece]);
             img.dataset.row = row;
             img.dataset.col = col;
 
-            // Sự kiện kéo bằng tay (drag thủ công)
+            //chuột xuống 
             img.addEventListener("mousedown", (e) => {
                 draggedPiece = e.target;
-                startX = parseFloat(draggedPiece.getAttribute("x"));
-                startY = parseFloat(draggedPiece.getAttribute("y"));
-                // Đặt offset sao cho quân cờ luôn nằm giữa con trỏ chuột
-                offsetX = squareSize / 2;
-                offsetY = squareSize / 2;
-            });
+                if (draggedPiece) {
+                    //const square = document.querySelector(`rect[data-row="${draggedPiece.dataset.row}"][data-col="${draggedPiece.dataset.col}"]`);
 
+                    //if (square) {
+                    //    square.classList.add("highlight-origin"); // hoặc đổi màu, lấy tọa độ, xử lý gì cũng được
+                    //}
+                    draggedPiece.classList.add("dragging");
+                    board.classList.add("dragging-active");
+                    startX = parseFloat(draggedPiece.getAttribute("x"));
+                    startY = parseFloat(draggedPiece.getAttribute("y"));
+                    // Đặt offset sao cho quân cờ luôn nằm giữa con trỏ chuột
+                }
+                /*    getValidMove()*/
+            });
             board.appendChild(img);
         }
     }
@@ -96,42 +88,50 @@ function renderChess(state) {
 board.addEventListener("mousemove", (e) => {
     if (!draggedPiece) return;
     const mousePos = getMousePositionInSvg(e);
-    draggedPiece.setAttribute("x", mousePos.x - offsetX);
-    draggedPiece.setAttribute("y", mousePos.y - offsetY);
+    draggedPiece.setAttribute("x", mousePos.x - offsetCenter);
+    draggedPiece.setAttribute("y", mousePos.y - offsetCenter);
 });
 
 board.addEventListener("mouseup", (e) => {
     if (!draggedPiece) return;
     const mousePos = getMousePositionInSvg(e);
     const { row, col } = getSquareAtCoordinates(mousePos.x, mousePos.y);
+    const squareName = coordsToSquare(row, col); // Dùng hàm bạn đã có
 
-    // Đặt quân cờ vào đúng ô (căn giữa ô)
-    draggedPiece.setAttribute("x", col * squareSize);
-    draggedPiece.setAttribute("y", row * squareSize);
+    // Kiểm tra xem nước đi có hợp lệ không
+    let validMoves = null;
+
+    validMoves = getValidMoves(boardState, parseInt(draggedPiece.dataset.row), parseInt(draggedPiece.dataset.col));
+    // Chuyển validMoves sang dạng string ["e4", "d3", ...]
+    const validMoveSquares = validMoves.map(pos => coordsToSquare(pos.row, pos.col));
+    console.log(validMoves);
+    if (!validMoveSquares || !validMoveSquares.includes(squareName)) {
+        returnToOriginalPosition(draggedPiece, startX, startY);
+        clearDraggingState();
+        return;
+    }
+    const { row: rowStart, col: colStart } = getSquareAtCoordinates(startX, startY);
+    // Hợp lệ xóa quân cờ ở vị trí ăn 
+    removePieceAt(row, col, draggedPiece);
+    updateBoardState(boardState, rowStart, colStart, row, col);
+    // Hợp lệ: đặt quân cờ
+    draggedPiece.setAttribute("x", col * squareSize + offset);
+    draggedPiece.setAttribute("y", row * squareSize + offset);
     draggedPiece.dataset.row = row;
     draggedPiece.dataset.col = col;
-    draggedPiece = null;
+    clearDraggingState();
+    console.log(boardState)
 });
 
 board.addEventListener("mouseleave", () => {
     if (draggedPiece) {
         returnToOriginalPosition(draggedPiece, startX, startY);
+        board.classList.remove("dragging-active");
+        draggedPiece.classList.remove("dragging");
         draggedPiece = null;
     }
 });
 
-board.addEventListener("click", (e) => {
-    if (e.target.tagName === "image") {
-        console.log("Click vào quân cờ ở ô", e.target.dataset.row, e.target.dataset.col);
-        getPieceNameById(e);
-    } else if (e.target.tagName === "rect") {
-        const { x, y } = getMousePositionInSvg(e);
-        const square = getSquareAtCoordinates(x, y);
-        console.log(`Bạn đã click vào ô: ${square.row}, ${square.col}`);
-    }
-});
-
-// quay lại vị trí gốc (cần chỉnh sửa lại)
 function returnToOriginalPosition(piece, startX, startY) {
     piece.setAttribute("x", startX);
     piece.setAttribute("y", startY);
@@ -149,16 +149,36 @@ function getMousePositionInSvg(e) {
     return { x: svgP.x, y: svgP.y }
 
 }
+
 function getSquareAtCoordinates(x, y) {
     const col = Math.min(7, Math.max(0, Math.floor(x / squareSize)));
     const row = Math.min(7, Math.max(0, Math.floor(y / squareSize)));
     return { row, col };
 
 }
+
+//xóa trạng thái kéo thả 
+function clearDraggingState() {
+    if (draggedPiece) {
+        draggedPiece.classList.remove("dragging");
+        board.classList.remove("dragging-active");
+        draggedPiece = null;
+    }
+}
+// ăn quân 
+function removePieceAt(row, col, draggedPiece = null) {
+    const piece = document.querySelector(`.piece[data-row="${row}"][data-col="${col}"]`);
+    {
+        if (piece && piece !== draggedPiece) {
+            piece.remove();
+        }
+    }
+}
 function removeAllHighlights() {
     const highlights = board.querySelectorAll(".highlight-origin, .highlight-destination");
     highlights.forEach(el => el.classList.remove("highlight-origin", "highlight-destination"));
 }
+
 function checkMove(fen, move) {
     return new Promise((resolve, reject) => {
         $.ajax({
@@ -181,12 +201,6 @@ function toChessNotation(row, col) {
     return files[col] + ranks[row];
 }
 
-
-//board.addEventListener("mousedown", startDragging);
-//board.addEventListener("mousemove", dragging);
-//board.addEventListener("mouseup", stopDragging);
-
 // Khởi tạo bàn cờ
 drawBoard();
 renderChess(boardState);
-///*Hello()*/
