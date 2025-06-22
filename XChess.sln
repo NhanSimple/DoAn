@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XChess.Web", "XChess\XChess.Web.csproj", "{BF1D56D9-CA76-41C0-839C-5FD6DE9AA61F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XChess.Web", "XChess.Web\XChess.Web.csproj", "{BF1D56D9-CA76-41C0-839C-5FD6DE9AA61F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XChess.Model", "XChess.Model\XChess.Model.csproj", "{E3C02E65-1333-4522-BC13-F556C16F76FD}"
 EndProject
@@ -11,9 +11,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XChess.Repository", "XChess
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XChess.Service", "XChess.Service\XChess.Service.csproj", "{F8DF5E57-85C3-479A-89F2-81085A0B2732}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonHelper", "CommonHelper\CommonHelper.csproj", "{9EBF254F-E96B-442D-B781-625FF6FF0AFE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XChess.CommonHelper", "CommonHelper\XChess.CommonHelper.csproj", "{9EBF254F-E96B-442D-B781-625FF6FF0AFE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XChess.Engine", "XChess.Engine\XChess.Engine.csproj", "{98364839-0B27-4804-8E73-752D4A807D55}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XChess.RealTime", "XChess.RealTime\XChess.RealTime.csproj", "{FD2CA17D-97D5-4197-810E-A983452011B1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{98364839-0B27-4804-8E73-752D4A807D55}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{98364839-0B27-4804-8E73-752D4A807D55}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{98364839-0B27-4804-8E73-752D4A807D55}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD2CA17D-97D5-4197-810E-A983452011B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD2CA17D-97D5-4197-810E-A983452011B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD2CA17D-97D5-4197-810E-A983452011B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD2CA17D-97D5-4197-810E-A983452011B1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

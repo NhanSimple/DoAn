@@ -54,6 +54,11 @@
     <Compile Include="Entities\Game.cs" />
     <Compile Include="Entities\Move.cs" />
     <Compile Include="Entities\User.cs" />
+    <Compile Include="Enums\GameStatus.cs" />
+    <Compile Include="Enums\PlayerColor.cs" />
+    <Compile Include="GameModel\GameStateModel.cs" />
+    <Compile Include="GameModel\GameTimerState.cs" />
+    <Compile Include="GameModel\PlayerConnection.cs" />
     <Compile Include="Migrations\202504261549098_initial.cs" />
     <Compile Include="Migrations\202504261549098_initial.designer.cs">
       <DependentUpon>202504261549098_initial.cs</DependentUpon>

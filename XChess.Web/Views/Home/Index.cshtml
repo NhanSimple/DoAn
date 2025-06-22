@@ -1,0 +1,170 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_StartLayout.cshtml";
+}
+@section styles {
+    <style>
+        .block {
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .small-box {
+            background-color: #0099ff;
+            height: 140px;
+        }
+
+        body {
+            background-image: url("/Content/Images/layout.jpeg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #carousel {
+            display: flex;
+            justify-content: space-between;
+            overflow: hidden;
+        }
+
+            #carousel .item {
+                display: none;
+            }
+
+                #carousel .item.active {
+                    display: inline-block;
+                }
+
+    </style>
+}
+
+<div class="container my-4">
+    <div class="row g-3">
+        <div class="col-md-3"  onclick="location.href='@Url.Action("Index", "PVP", new { area = "PVPArea" })'">
+            <div class="block small-box">
+
+                <div>PVP</div>
+            </div>
+        </div>
+        <div class="col-md-3"  onclick="testMakeMove()">
+            <div class="block small-box">
+                <div>Test Make move</div>
+            </div>
+        </div>
+        <div class="col-md-3"  onclick="sendRandom('create')">
+            <div class="block small-box">
+                <div>test create</div>
+            </div>
+        </div>
+        <div class="col-md-3" onclick="sendRandom('switch')">
+            <div class="block small-box">
+                <div>test switch</div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!--<div class="center-container">-->
+@*<a href="javascript:void(0)" onclick="CreateAction('/UserArea/User/Create')" class="btn btn-primary btn-sm btn-secondary m-1">
+    <i class="ri-add-line"></i> Thêm mới*@
+<!--<button id="btnPlay" href="javascript:void(0)" onclick="CreateAction('/LoginArea/Login/Login')">CHƠI NGAY</button>
+</div>-->
+@section scripts {
+    <script>
+        function testMakeMove() {
+            $.ajax({
+                url: '/Chess/Chess/MakeMove', // Area = Chess, Controller = Chess
+                type: 'POST',
+                data: {
+                    fen: "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", // ví dụ: FEN bàn cờ lúc đầu
+                    move: "e2e4" // ví dụ nước đi
+                },
+                success: function (response) {
+                    alert("kết quả kiểm tra: " + response.legal);
+                },
+                error: function (xhr, status, error) {
+                    alert("Lỗi: " + error);
+                }
+            });
+        }
+        @*$(document).ready(function () {
+
+            console.log('jQuery is ready!');
+            var currentIndex = 0;
+            var items = $('#carousel .item');
+            var totalItems = items.length;
+            var visibleItems = 4;
+
+            // Hiển thị 4 phần tử đầu tiên
+            function showItems() {
+                // Ẩn tất cả các item trước khi hiển thị lại
+                items.removeClass('active');
+
+                // Hiển thị các item trong phạm vi visibleItems
+                for (var i = 0; i < visibleItems; i++) {
+                    var index = (currentIndex + i) % totalItems;
+                    $(items[index]).addClass('active');
+                }
+            }
+
+            // Hiển thị ban đầu
+            showItems();
+
+            // Sự kiện nhấn nút Next
+            $('#next').click(function () {
+                currentIndex = (currentIndex + 1) % totalItems;
+                showItems();
+            });
+
+            // Sự kiện nhấn nút Previous
+            $('#prev').click(function () {
+                currentIndex = (currentIndex - 1 + totalItems) % totalItems;
+                showItems();
+            });
+        });*@
+        //let socket;
+
+        window.onload = function () {
+            socket = new WebSocket("ws://localhost:8081/ws/");
+
+            socket.onopen = () => {
+                console.log("✅ Đã kết nối WebSocket");
+            };
+
+            socket.onmessage = (event) => {
+                console.log("📩 Server gửi lại:", event.data);
+            };
+
+            socket.onclose = () => {
+                console.warn("❌ WebSocket đã đóng");
+            };
+
+            socket.onerror = (err) => {
+                console.error("⚠️ Lỗi WebSocket:", err);
+            };
+        };
+
+        function sendRandom(message) {
+            if (!socket || socket.readyState !== WebSocket.OPEN) {
+                alert("WebSocket chưa kết nối!");
+                return;
+            }
+
+            const randomMessage = {
+                type: "test",
+                value: Math.floor(Math.random() * 100)
+            };
+            //         socket.send(JSON.stringify(randomMessage));
+            socket.send(message);
+     //       socket.send(JSON.stringify(randomMessage));
+      //      console.log("🚀 Đã gửi:", randomMessage);
+        }
+    </script>
+
+}
+
