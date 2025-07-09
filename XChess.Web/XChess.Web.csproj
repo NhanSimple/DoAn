@@ -184,6 +184,11 @@
     <Compile Include="Areas\Chess\ChessAreaRegistration.cs" />
     <Compile Include="Areas\Chess\Controllers\ChessController.cs" />
     <Compile Include="Areas\CommonConfigurationArea\CommonConfigurationAreaAreaRegistration.cs" />
+    <Compile Include="Areas\GameRoomArea\Controllers\GameRoomController.cs" />
+    <Compile Include="Areas\GameRoomArea\GameRoomAreaRegistration.cs" />
+    <Compile Include="Areas\GameRoomArea\Model\GameRoomVM.cs" />
+    <Compile Include="Areas\GameRoomArea\Model\PlayerCardVM.cs" />
+    <None Include="Areas\GameRoomArea\Views\GameRoom\_JoinRoomPartial.cshtml" />
     <Compile Include="Areas\LoginArea\Controllers\LoginController.cs" />
     <Compile Include="Areas\LoginArea\LoginAreaAreaRegistration.cs" />
     <Compile Include="Areas\LoginArea\Model\AccoutInfo.cs" />
@@ -209,10 +214,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Content Include="Areas\Chess\Controllers\stockfish.exe" />
     <Content Include="Areas\Chess\Views\web.config" />
+    <Content Include="Content\Images\anhtest.jpg" />
     <Content Include="Content\LoginPage.css" />
     <Content Include="libman.json" />
     <Content Include="Views\Shared\_AuthLayout.cshtml" />
     <Content Include="Areas\LoginArea\Views\Login\Index.cshtml" />
+    <Content Include="Areas\GameRoomArea\Views\web.config" />
+    <Content Include="Areas\GameRoomArea\Views\GameRoom\Index.cshtml" />
+    <Content Include="Areas\GameRoomArea\Views\GameRoom\_PlayerCardPartial.cshtml" />
     <None Include="Views\Shared\_PlayLayout.cshtml" />
     <Content Include="Areas\LoginArea\Views\web.config" />
     <Content Include="Areas\PVPArea\Views\web.config" />
@@ -310,6 +319,8 @@
     <Folder Include="Areas\CommonConfigurationArea\Data\" />
     <Folder Include="Areas\CommonConfigurationArea\Model\" />
     <Folder Include="Areas\CommonConfigurationArea\Views\Shared\" />
+    <Folder Include="Areas\GameRoomArea\Data\" />
+    <Folder Include="Areas\GameRoomArea\Views\Shared\" />
     <Folder Include="Areas\LoginArea\Data\" />
     <Folder Include="Areas\LoginArea\Views\Shared\" />
     <Folder Include="Areas\PVPArea\Data\" />

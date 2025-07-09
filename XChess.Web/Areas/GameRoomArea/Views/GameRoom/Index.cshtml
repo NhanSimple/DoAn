@@ -1,0 +1,89 @@
+﻿@{
+    ViewBag.Title = "Match Setup";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+@section Styles {
+    <style>
+        body {
+            background-color: #0e0f1b;
+            color: white;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .rounded-4 {
+            border-radius: 1rem !important;
+        }
+
+        .custom-card {
+            width: 340px; /* tăng size lên từ 260 */
+            background-color: white;
+            color: black;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .gradient-header {
+            height: 80px; /* cao hơn để cân card */
+            background: linear-gradient(135deg, #d6249f, #285AEB);
+            position: relative;
+        }
+
+        .avatar-container {
+            position: absolute;
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 4px solid white;
+            border-radius: 50%;
+            overflow: hidden;
+            width: 64px;
+            height: 64px;
+            background-color: white;
+        }
+
+            .avatar-container img {
+                width: 100%;
+                height: 100%;
+            }
+
+        .form-control-sm {
+            padding: 0.6rem 1.25rem;
+            font-size: 1rem;
+        }
+
+        .btn-dark {
+            background-color: #222;
+            border: none;
+            font-size: 1rem;
+            padding: 0.6rem 1rem;
+        }
+
+        .btn-purple {
+            background-color: #6c47ff;
+            color: white;
+            border: none;
+            font-size: 1rem;
+            padding: 0.6rem 2rem;
+        }
+
+            .btn-purple:hover {
+                background-color: #5936d0;
+            }
+
+        .card-body p {
+            font-size: 0.95rem;
+        }
+    </style>
+}
+
+<div class="d-flex flex-column align-items-center justify-content-center vh-100">
+    <div class="d-flex gap-4">
+        @Html.Partial("_PlayerCardPartial")
+        @Html.Partial("_JoinRoomPartial")
+    </div>
+
+    <div class="mt-4">
+        <button class="btn btn-purple px-5 py-2">Start Match</button>
+    </div>
+</div>
