@@ -9,7 +9,7 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using XChess.Modules;
 using XChess.RealTime.Server;
-using XChess.Service.GameTimer;
+
 using XChess.Service.GameTimerService;
 namespace XChess
 {
@@ -29,11 +29,11 @@ namespace XChess
             builder.RegisterModule<WebSocketModule>();
             //builder.RegisterControllers
             builder.RegisterModule(new RepositoryModule());
+            builder.RegisterModule(new StoreModule());
+            builder.RegisterModule(new InfrastructureModule());
             builder.RegisterModule(new EFModule());
             builder.RegisterModule(new ServiceModule());
             builder.RegisterModule(new EngineModule());
-            builder.RegisterType<GameTimerComponents>()
-        .As<IGameTimerComponents>().InstancePerLifetimeScope();
             var container = builder.Build();
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
             var webSocketServer = container.Resolve<IWebSocketServer>();

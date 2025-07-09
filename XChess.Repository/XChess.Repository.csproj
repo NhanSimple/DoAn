@@ -56,8 +56,14 @@
     <Compile Include="Common\IGenericRepository.cs" />
     <Compile Include="Common\IUnitOfWork.cs" />
     <Compile Include="Common\UnitOfWork.cs" />
-    <Compile Include="GameRepository\GameRepository.cs" />
-    <Compile Include="GameRepository\IGameRepository.cs" />
+    <Compile Include="MatchPlayerRepository\IMatchPlayerRepository.cs" />
+    <Compile Include="MatchPlayerRepository\MatchPlayerRepository.cs" />
+    <Compile Include="ChessMatchRepository\IChessMatchRepository.cs" />
+    <Compile Include="ChessMatchRepository\ChessMatchRepository.cs" />
+    <Compile Include="MatchResultRepository\IMatchResultRepository.cs" />
+    <Compile Include="MatchResultRepository\MatchResultRepository.cs" />
+    <Compile Include="MoveRepository\IMoveRepository.cs" />
+    <Compile Include="MoveRepository\MoveRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserRepository\IUserRepository.cs" />
     <Compile Include="UserRepository\UserRepository.cs" />

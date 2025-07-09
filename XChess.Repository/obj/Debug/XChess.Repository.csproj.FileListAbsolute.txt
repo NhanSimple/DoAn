@@ -28,3 +28,5 @@ D:\DoAnTotNghiep\Code\XChess\XChess.Repository\obj\Debug\XChess.Repository.cspro
 D:\DoAnTotNghiep\Code\XChess\XChess.Repository\obj\Debug\XChess.Repository.csproj.CopyComplete
 D:\DoAnTotNghiep\Code\XChess\XChess.Repository\obj\Debug\XChess.Repository.dll
 D:\DoAnTotNghiep\Code\XChess\XChess.Repository\obj\Debug\XChess.Repository.pdb
+D:\DoAnTotNghiep\Code\XChess\XChess.Repository\bin\Debug\XChess.Infrastructure.dll
+D:\DoAnTotNghiep\Code\XChess\XChess.Repository\bin\Debug\XChess.Infrastructure.pdb

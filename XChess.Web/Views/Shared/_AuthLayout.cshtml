@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>@ViewBag.Title - XChess</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    @Styles.Render("~/Content/LoginPage/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+
+<body class="d-flex justify-content-center align-items-center">
+    <div class="auth-container">
+        <!-- Logo -->
+        <div class="auth-logo">
+            <a href="/">♔<span>X</span>Chess</a>
+        </div>
+
+        @RenderBody()
+
+    </div>
+
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -6,18 +6,20 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using XChess.Model.Common;
 
 namespace XChess.Model.Entities
 {
-    public class User
+    public class User : AuditableEntity<long>
     {
-        [Key]
-        public int Id { get; set; }
-        public string Username { get; set; }
-        public string FirtName { get; set; }
-        public string LastName {  get; set; }
-        public string PasswordHash { get; set; }
+        public string UserName { get; set; }
         public string Email { get; set; }
-        public DateTime CreatedAt { get; set; }
+        public string PasswordHash { get; set; }
+        public virtual ICollection<UserRole> UserRoles { get; set; }
+
+        // Quan hệ 1-nhiều với các bảng liên quan
+        public virtual ICollection<MatchPlayer> MatchPlayers { get; set; }
+        public virtual ICollection<MatchResult> MatchResults { get; set; }
+        public virtual ICollection<Move> Moves { get; set; }
     }
 }

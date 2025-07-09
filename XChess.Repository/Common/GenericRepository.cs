@@ -98,6 +98,10 @@ namespace XChess.Repository.Common
             var entity = _entities.Set<T>().Where(predicate).FirstOrDefault() ?? Activator.CreateInstance(typeof(T)) as T;
             return entity;
         }
+        public bool Any(Expression<Func<T, bool>> predicate)
+        {
+            return _dbset.Any(predicate);
+        }
 
     }
 

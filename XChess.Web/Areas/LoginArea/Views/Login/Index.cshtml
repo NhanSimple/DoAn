@@ -1,0 +1,48 @@
+@{
+    Layout = "~/Views/Shared/_AuthLayout.cshtml";
+    ViewBag.Title = "XChess Auth";
+}
+
+<!-- Login Form -->
+<form id="loginForm" class="auth-form active">
+    <input type="text" class="form-control mb-3" placeholder="Username" />
+    <input type="password" class="form-control mb-3" placeholder="Password" />
+    <button type="submit" class="btn btn-auth w-100">Login</button>
+    <div class="auth-links">
+        <a onclick="showForm('forgotForm')">Forgot Password?</a>
+        <a onclick="showForm('registerForm')">Create Account</a>
+    </div>
+</form>
+
+<!-- Register Form -->
+<form id="registerForm" class="auth-form">
+    <input type="text" class="form-control mb-3" placeholder="Username" />
+    <input type="email" class="form-control mb-3" placeholder="Email" />
+    <input type="password" class="form-control mb-3" placeholder="Password" />
+    <input type="password" class="form-control mb-3" placeholder="Confirm Password" />
+    <button type="submit" class="btn btn-auth w-100">Register</button>
+    <div class="auth-links">
+        <a onclick="showForm('loginForm')">Back to Login</a>
+        <span></span>
+    </div>
+</form>
+
+<!-- Forgot Password Form -->
+<form id="forgotForm" class="auth-form">
+    <input type="email" class="form-control mb-3" placeholder="Enter your email" />
+    <button type="submit" class="btn btn-auth w-100">Reset Password</button>
+    <div class="auth-links">
+        <a onclick="showForm('loginForm')">Back to Login</a>
+        <span></span>
+    </div>
+</form>
+
+@section scripts{
+    <script>
+        function showForm(formId) {
+            document.querySelectorAll('.auth-form').forEach(f => f.classList.remove('active'));
+            document.getElementById(formId).classList.add('active');
+        }
+    </script>
+
+}

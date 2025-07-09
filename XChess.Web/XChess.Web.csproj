@@ -201,17 +201,20 @@
     <Compile Include="Modules\AutoMapperModule.cs" />
     <Compile Include="Modules\EFModule.cs" />
     <Compile Include="Modules\EngineModule.cs" />
-    <Compile Include="Modules\GameModule.cs" />
+    <Compile Include="Modules\InfrastructureModule.cs" />
     <Compile Include="Modules\RepositoryModule.cs" />
     <Compile Include="Modules\ServiceModule.cs" />
+    <Compile Include="Modules\StoreModule.cs" />
     <Compile Include="Modules\WebSocketModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Content Include="Areas\Chess\Controllers\stockfish.exe" />
     <Content Include="Areas\Chess\Views\web.config" />
+    <Content Include="Content\LoginPage.css" />
     <Content Include="libman.json" />
+    <Content Include="Views\Shared\_AuthLayout.cshtml" />
+    <Content Include="Areas\LoginArea\Views\Login\Index.cshtml" />
     <None Include="Views\Shared\_PlayLayout.cshtml" />
     <Content Include="Areas\LoginArea\Views\web.config" />
-    <Content Include="Areas\LoginArea\Views\Login\_LoginPartial.cshtml" />
     <Content Include="Areas\PVPArea\Views\web.config" />
     <Content Include="Areas\PVPArea\Views\PVP\Index.cshtml" />
     <None Include="Views\Shared\_ModalPartial.cshtml" />
@@ -351,9 +354,17 @@
       <Project>{98364839-0b27-4804-8e73-752d4a807d55}</Project>
       <Name>XChess.Engine</Name>
     </ProjectReference>
+    <ProjectReference Include="..\XChess.Infrastructure\XChess.Infrastructure.csproj">
+      <Project>{8a16f3d9-e62a-4c8d-91a9-99bfc90b705a}</Project>
+      <Name>XChess.Infrastructure</Name>
+    </ProjectReference>
     <ProjectReference Include="..\XChess.Model\XChess.Model.csproj">
       <Project>{e3c02e65-1333-4522-bc13-f556c16f76fd}</Project>
       <Name>XChess.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XChess.RealtimeStore\XChess.Store.csproj">
+      <Project>{409d1a6d-9c05-41e3-a8cb-a7b0dac21b4c}</Project>
+      <Name>XChess.Store</Name>
     </ProjectReference>
     <ProjectReference Include="..\XChess.RealTime\XChess.RealTime.csproj">
       <Project>{fd2ca17d-97d5-4197-810e-a983452011b1}</Project>

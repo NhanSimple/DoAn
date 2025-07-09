@@ -1,5 +1,10 @@
+﻿using System.ComponentModel.DataAnnotations;
+
 public enum PlayerColor
 {
+    [Display(Name = "Trắng")]
     White,
-    Black
+
+    [Display(Name = "Đen")]
+    Black,
 }

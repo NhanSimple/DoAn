@@ -21,6 +21,7 @@ namespace XChess.Repository.Common
         void InsertRange(IEnumerable<T> entities);
         T GetById(object id);
         T GetEmptyIfNullById(object id);
+        bool Any(Expression<Func<T, bool>> predicate);
         T FindEmptyIfNullByExp(Expression<Func<T, bool>> predicate);
     }
 }

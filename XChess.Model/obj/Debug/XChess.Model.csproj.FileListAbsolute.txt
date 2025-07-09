@@ -28,3 +28,7 @@ D:\DoAnTotNghiep\Code\XChess\XChess.Model\obj\Debug\XChess.Model.csproj.CoreComp
 D:\DoAnTotNghiep\Code\XChess\XChess.Model\obj\Debug\XChess.Model.csproj.CopyComplete
 D:\DoAnTotNghiep\Code\XChess\XChess.Model\obj\Debug\XChess.Model.dll
 D:\DoAnTotNghiep\Code\XChess\XChess.Model\obj\Debug\XChess.Model.pdb
+D:\DoAnTotNghiep\Code\XChess\XChess.Model\bin\Debug\XChess.Infrastructure.dll
+D:\DoAnTotNghiep\Code\XChess\XChess.Model\bin\Debug\XChess.Infrastructure.pdb
+D:\DoAnTotNghiep\Code\XChess\XChess.Model\obj\Debug\XChess.Model.Migrations.chinhsuacacbang.resources
+D:\DoAnTotNghiep\Code\XChess\XChess.Model\obj\Debug\XChess.Model.Migrations.chinhsuacacbang2.resources

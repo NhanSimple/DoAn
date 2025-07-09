@@ -30,3 +30,7 @@ D:\DoAnTotNghiep\Code\XChess\XChess.Service\obj\Debug\XChess.Service.csproj.Core
 D:\DoAnTotNghiep\Code\XChess\XChess.Service\obj\Debug\XChess.Service.csproj.CopyComplete
 D:\DoAnTotNghiep\Code\XChess\XChess.Service\obj\Debug\XChess.Service.dll
 D:\DoAnTotNghiep\Code\XChess\XChess.Service\obj\Debug\XChess.Service.pdb
+D:\DoAnTotNghiep\Code\XChess\XChess.Service\bin\Debug\XChess.Infrastructure.dll
+D:\DoAnTotNghiep\Code\XChess\XChess.Service\bin\Debug\XChess.Infrastructure.pdb
+D:\DoAnTotNghiep\Code\XChess\XChess.Service\bin\Debug\XChess.Store.dll
+D:\DoAnTotNghiep\Code\XChess\XChess.Service\bin\Debug\XChess.Store.pdb

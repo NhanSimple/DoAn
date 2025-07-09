@@ -13,20 +13,16 @@ namespace XChess.Modules
     {
         protected override void Load(ContainerBuilder builder)
         {
-            builder.RegisterType<ConnectionManager>()
-                .As<IConnectionManager>()
+            builder.RegisterType<WebSocketMessageHandler>()
+                .As<IWebSocketMessageHandler>()
                 .SingleInstance();
 
             builder.RegisterType<WebSocketServer>()
                 .As<IWebSocketServer>()
                 .SingleInstance();
 
-            builder.RegisterType<MessageHandler>()
-                   .As<IMessageHandler>()
-                   .SingleInstance();
-
-            builder.RegisterType<GameSessionManager>()
-                   .As<IGameSessionManager>()
+            builder.RegisterType<WebSocketConnectionHandler>()
+                   .As<IWebSocketConnectionHandler>()
                    .SingleInstance();
         }
     }

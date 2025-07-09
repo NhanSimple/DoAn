@@ -37,15 +37,15 @@ namespace XChess.Areas.UserArea.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    var  user = new User();
-                    //var EntityModel = model;
-                    user.Username = model.Username;
-                    user.PasswordHash = model.Password;
-                    user.FirtName = model.FirtName;
-                    user.Email = model.Email; 
-                    user.LastName = model.LastName;
-                    user.CreatedAt = DateTime.Now;
-                    _userService.Create(user);
+                    //var  user = new User();
+                    ////var EntityModel = model;
+                    //user.Username = model.Username;
+                    //user.PasswordHash = model.Password;
+                    //user.FirtName = model.FirtName;
+                    //user.Email = model.Email; 
+                    //user.LastName = model.LastName;
+                    //user.CreatedAt = DateTime.Now;
+                    //_userService.Create(user);
                 }
             }
             catch (Exception ex)

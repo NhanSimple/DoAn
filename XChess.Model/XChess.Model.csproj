@@ -51,14 +51,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\Game.cs" />
+    <Compile Include="Common\AuditableEntitiy.cs" />
+    <Compile Include="Common\Entity.cs" />
+    <Compile Include="Common\IAuditableEntity.cs" />
+    <Compile Include="Common\IEntity.cs" />
+    <Compile Include="Entities\InvalidMoveLog.cs" />
+    <Compile Include="Entities\MatchPlayer.cs" />
+    <Compile Include="Entities\MatchResult.cs" />
     <Compile Include="Entities\Move.cs" />
+    <Compile Include="Entities\Role.cs" />
     <Compile Include="Entities\User.cs" />
-    <Compile Include="Enums\GameStatus.cs" />
+    <Compile Include="Entities\UserRole.cs" />
+    <Compile Include="Enums\EnumHelper.cs" />
+    <Compile Include="Enums\GameType.cs" />
+    <Compile Include="Enums\GameResult.cs" />
     <Compile Include="Enums\PlayerColor.cs" />
-    <Compile Include="GameModel\GameStateModel.cs" />
-    <Compile Include="GameModel\GameTimerState.cs" />
-    <Compile Include="GameModel\PlayerConnection.cs" />
+    <Compile Include="Migrations\202507020719408_chinhsuacacbang.cs" />
+    <Compile Include="Migrations\202507020719408_chinhsuacacbang.designer.cs">
+      <DependentUpon>202507020719408_chinhsuacacbang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202507021124257_chinhsuacacbang2.cs" />
+    <Compile Include="Migrations\202507021124257_chinhsuacacbang2.designer.cs">
+      <DependentUpon>202507021124257_chinhsuacacbang2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XChessRealTimeContext.cs" />
+    <Compile Include="RealTimeModel\GameRoom.cs" />
+    <Compile Include="RealTimeModel\GameState.cs" />
+    <Compile Include="Entities\ChessMatch.cs" />
+    <Compile Include="RealTimeModel\GameTimer.cs" />
+    <Compile Include="RealTimeModel\PlayerConnection.cs" />
     <Compile Include="Migrations\202504261549098_initial.cs" />
     <Compile Include="Migrations\202504261549098_initial.designer.cs">
       <DependentUpon>202504261549098_initial.cs</DependentUpon>
@@ -82,6 +103,18 @@
     <EmbeddedResource Include="Migrations\202505071517114_updateUser.resx">
       <DependentUpon>202505071517114_updateUser.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202507020719408_chinhsuacacbang.resx">
+      <DependentUpon>202507020719408_chinhsuacacbang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202507021124257_chinhsuacacbang2.resx">
+      <DependentUpon>202507021124257_chinhsuacacbang2.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\XChess.Infrastructure\XChess.Infrastructure.csproj">
+      <Project>{8a16f3d9-e62a-4c8d-91a9-99bfc90b705a}</Project>
+      <Name>XChess.Infrastructure</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

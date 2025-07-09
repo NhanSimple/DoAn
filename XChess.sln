@@ -17,6 +17,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XChess.Engine", "XChess.Eng
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XChess.RealTime", "XChess.RealTime\XChess.RealTime.csproj", "{FD2CA17D-97D5-4197-810E-A983452011B1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XChess.Infrastructure", "XChess.Infrastructure\XChess.Infrastructure.csproj", "{8A16F3D9-E62A-4C8D-91A9-99BFC90B705A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XChess.Store", "XChess.RealtimeStore\XChess.Store.csproj", "{409D1A6D-9C05-41E3-A8CB-A7B0DAC21B4C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +55,14 @@ Global
 		{FD2CA17D-97D5-4197-810E-A983452011B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FD2CA17D-97D5-4197-810E-A983452011B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FD2CA17D-97D5-4197-810E-A983452011B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A16F3D9-E62A-4C8D-91A9-99BFC90B705A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A16F3D9-E62A-4C8D-91A9-99BFC90B705A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A16F3D9-E62A-4C8D-91A9-99BFC90B705A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A16F3D9-E62A-4C8D-91A9-99BFC90B705A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{409D1A6D-9C05-41E3-A8CB-A7B0DAC21B4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{409D1A6D-9C05-41E3-A8CB-A7B0DAC21B4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{409D1A6D-9C05-41E3-A8CB-A7B0DAC21B4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{409D1A6D-9C05-41E3-A8CB-A7B0DAC21B4C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
