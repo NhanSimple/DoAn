@@ -91,9 +91,11 @@ namespace XChess.Service.Common
             _unitOfWork.Commit();
         }
 
-        public void Update(T entity)
+        public virtual void Update(T entity)
         {
-            throw new NotImplementedException();
+            if (entity == null) throw new ArgumentNullException("entity");
+            _repository.Update(entity);
+            _unitOfWork.Commit();
         }
     }
 }

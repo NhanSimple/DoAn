@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Runtime.Remoting.Contexts;
 using System.Threading;
 namespace XChess.Repository.Common
 {
@@ -10,7 +11,7 @@ namespace XChess.Repository.Common
     {
         protected DbContext _entities;
         protected readonly IDbSet<T> _dbset;
-     
+
         public GenericRepository(DbContext context)
         {
             _entities = context;
@@ -44,6 +45,11 @@ namespace XChess.Repository.Common
             return query;
         }
 
+        public virtual void Update(T entity)
+        {
+            if (entity == null) throw new ArgumentNullException(nameof(entity));
+            _entities.Entry(entity).State = EntityState.Modified;
+        }
 
         public void Save()
         {
@@ -62,7 +68,7 @@ namespace XChess.Repository.Common
 
         public virtual void SoftDelete(T entity)
         {
-           throw new NotImplementedException();
+            throw new NotImplementedException();
         }
         public virtual void Edit(T entity)
         {
@@ -70,9 +76,9 @@ namespace XChess.Repository.Common
         }
         public virtual void DeleteRange(IEnumerable<T> entities)
         {
-            foreach(var item in entities)
+            foreach (var item in entities)
             {
-                if(_entities.Entry(item).State == EntityState.Detached)
+                if (_entities.Entry(item).State == EntityState.Detached)
                 {
                     _dbset.Attach(item);
                 }

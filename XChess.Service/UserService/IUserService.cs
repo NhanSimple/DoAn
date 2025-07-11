@@ -11,6 +11,8 @@ namespace XChess.Service.UserService
     public  interface IUserService:IEntityService<User>
     {
         User GetById(int id);
-
+        bool IsEmailTaken(string email);
+        bool TryGetByEmail(string email, out User user);
     }
+
 }

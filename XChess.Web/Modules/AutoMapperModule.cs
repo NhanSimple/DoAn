@@ -25,12 +25,8 @@ namespace XChess.Modules
                 }
                 cfg.AllowNullDestinationValues = true;
                 cfg.ValidateInlineMaps = false;
-                cfg.IgnoreUnmapped();
-                //cfg.CreateMap<DM_DulieuDanhmuc, SelectListItem>()
-                //       .ForMember(x => x.Text, y => y.MapFrom(x => x.Name.ToString()))
-                //       .ForMember(x => x.Value, y => y.MapFrom(x => x.Id.ToString()));
+                cfg.IgnoreUnmapped();             
             })).AsSelf().SingleInstance();
-
             builder.Register(c => c.Resolve<MapperConfiguration>()
                 .CreateMapper(c.Resolve))
                 .As<IMapper>()

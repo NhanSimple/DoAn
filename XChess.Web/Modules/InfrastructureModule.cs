@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using XChess.Infrastructure.Realtime;
+using XChess.Infrastructure.PasswordHasher;
+using XChess.Infrastructure.EmailSender;
 using XChess.Model;
 namespace XChess.Modules
 {
@@ -16,8 +18,11 @@ namespace XChess.Modules
             builder.RegisterType<XChessRealTimeContext>()
                    .As<IRealtimeContext>()
                    .SingleInstance();
-
-    
+            builder.RegisterType<BcryptPasswordHasher>()
+                .As<IPasswordHasher>()
+                .InstancePerLifetimeScope();
+            builder.RegisterType<GmailEmailSender>().As<IEmailSender>()
+                .InstancePerLifetimeScope();
         }
     }
 }

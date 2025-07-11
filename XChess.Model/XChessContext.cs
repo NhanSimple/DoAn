@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -34,6 +35,10 @@ namespace XChess.Model
     .WithMany()
     .HasForeignKey(mp => mp.UserId)
     .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<User>()
+      .HasIndex(u => u.Email)
+      .IsUnique();
 
             modelBuilder.Entity<MatchPlayer>()
                 .HasRequired(mp => mp.Match)
@@ -83,39 +88,46 @@ namespace XChess.Model
 
         public override int SaveChanges()
         {
-            var modifiedEntries = ChangeTracker.Entries()
-                .Where(x => x.Entity is IAuditableEntity
-                    && (x.State == System.Data.Entity.EntityState.Added || x.State == System.Data.Entity.EntityState.Modified));
+            var now = DateTime.Now < new DateTime(1753, 1, 1)
+                ? new DateTime(1753, 1, 1)
+                : DateTime.Now;
 
-            foreach (var entry in modifiedEntries)
+            string identityName = Thread.CurrentPrincipal.Identity?.Name ?? "System";
+            long? userId = Users.FirstOrDefault(u => u.UserName == identityName)?.Id;
+
+            var entries = ChangeTracker.Entries()
+                .Where(e => e.Entity is IAuditableEntity &&
+                       (e.State == EntityState.Added || e.State == EntityState.Modified));
+
+            foreach (var entry in entries)
             {
-                IAuditableEntity entity = entry.Entity as IAuditableEntity;
-                if (entity != null)
+                var entity = (IAuditableEntity)entry.Entity;
+
+                if (entry.State == EntityState.Added)
                 {
-                    string identityName = Thread.CurrentPrincipal.Identity.Name;
-                    var userId = this.Users.Where(x => x.UserName == identityName).Select(x => x.Id).FirstOrDefault();
-
-                    DateTime now = DateTime.Now;
-
-                    if (entry.State == System.Data.Entity.EntityState.Added)
-                    {
-                        entity.CreatedBy = identityName;
-                        entity.CreatedDate = now;
-                        entity.CreatedID = userId;
-                    }
-                    else
-                    {
-                        base.Entry(entity).Property(x => x.CreatedBy).IsModified = false;
-                        base.Entry(entity).Property(x => x.CreatedDate).IsModified = false;
-                    }
-
-                    entity.UpdatedBy = identityName;
-                    entity.UpdatedDate = now;
-                    entity.UpdatedID = userId;
+                    entity.CreatedBy = identityName;
+                    entity.CreatedDate = now;
+                    entity.CreatedID = userId;
+                    entity.CreatedAt = now;
                 }
+                else
+                {
+                    Entry(entity).Property(x => x.CreatedBy).IsModified = false;
+                    Entry(entity).Property(x => x.CreatedDate).IsModified = false;
+                }
+
+                entity.UpdatedBy = identityName;
+                entity.UpdatedDate = now;
+                entity.UpdatedID = userId;
+
+                if (entity.UpdatedAt.HasValue && entity.UpdatedAt < new DateTime(1753, 1, 1))
+                    entity.UpdatedAt = new DateTime(1753, 1, 1);
+                if (entity.DeletedAt.HasValue && entity.DeletedAt < new DateTime(1753, 1, 1))
+                    entity.DeletedAt = new DateTime(1753, 1, 1);
             }
 
             return base.SaveChanges();
         }
+
     }
 }

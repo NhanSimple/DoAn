@@ -1,6 +1,20 @@
 ﻿
 
 /*toast css*/
+html, body {
+    height: 100%;
+    margin: 0;
+    overflow: hidden; /* ❗ Không cho cuộn */
+}
+.fade-wrapper {
+    opacity: 0;
+    transition: opacity 0.4s ease-in;
+}
+
+    .fade-wrapper.loaded {
+        opacity: 1;
+    }
+
 #toast-container {
     position: fixed;
     top: 20px;
@@ -53,3 +67,53 @@
         border-radius: 50%; /* Tạo bo tròn cho nút khi nhấn */
         background-color: #EED2EE;
     }
+
+
+body {
+    background: url('/Content/Images/giaodiennguoidung.png') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.chess-button {
+    width: 250px;
+    padding: 12px;
+    font-size: 1.1rem;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.btn-dark-icon {
+    font-size: 1.5rem;
+}
+
+.btn-soft-dark {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(3px);
+}
+
+    .btn-soft-dark:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+.btn-wrapper {
+    backdrop-filter: blur(6px);
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 1rem;
+    padding: 2rem;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+#main-flex-container {
+
+}
+.account-dropdown {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+

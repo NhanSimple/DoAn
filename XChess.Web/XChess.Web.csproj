@@ -181,6 +181,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\AdminArea\AdminAreaAreaRegistration.cs" />
     <Compile Include="Areas\Chess\ChessAreaRegistration.cs" />
     <Compile Include="Areas\Chess\Controllers\ChessController.cs" />
     <Compile Include="Areas\CommonConfigurationArea\CommonConfigurationAreaAreaRegistration.cs" />
@@ -188,10 +189,18 @@
     <Compile Include="Areas\GameRoomArea\GameRoomAreaRegistration.cs" />
     <Compile Include="Areas\GameRoomArea\Model\GameRoomVM.cs" />
     <Compile Include="Areas\GameRoomArea\Model\PlayerCardVM.cs" />
+    <Content Include="Areas\AdminArea\Views\web.config" />
     <None Include="Areas\GameRoomArea\Views\GameRoom\_JoinRoomPartial.cshtml" />
     <Compile Include="Areas\LoginArea\Controllers\LoginController.cs" />
     <Compile Include="Areas\LoginArea\LoginAreaAreaRegistration.cs" />
-    <Compile Include="Areas\LoginArea\Model\AccoutInfo.cs" />
+    <Compile Include="Areas\LoginArea\Model\AuthPageVM.cs" />
+    <Compile Include="Areas\LoginArea\Model\ForgotPasswordVM.cs" />
+    <Compile Include="Areas\LoginArea\Model\LoginVM.cs" />
+    <Compile Include="Areas\LoginArea\Model\RegisterVM.cs" />
+    <Compile Include="Areas\LoginArea\Model\RsPassCodeVM.cs" />
+    <Compile Include="Areas\LoginArea\Model\VerifyCodeVM.cs" />
+    <Compile Include="Areas\PlayerArea\Controllers\PlayerController.cs" />
+    <Compile Include="Areas\PlayerArea\PlayerAreaAreaRegistration.cs" />
     <Compile Include="Areas\PVPArea\Controllers\PVPController.cs" />
     <Compile Include="Areas\PVPArea\PVPAreaAreaRegistration.cs" />
     <Compile Include="Areas\UserArea\Controllers\UserController.cs" />
@@ -215,6 +224,7 @@
     <Content Include="Areas\Chess\Controllers\stockfish.exe" />
     <Content Include="Areas\Chess\Views\web.config" />
     <Content Include="Content\Images\anhtest.jpg" />
+    <Content Include="Content\Images\giaodiennguoidung.png" />
     <Content Include="Content\LoginPage.css" />
     <Content Include="libman.json" />
     <Content Include="Views\Shared\_AuthLayout.cshtml" />
@@ -222,6 +232,8 @@
     <Content Include="Areas\GameRoomArea\Views\web.config" />
     <Content Include="Areas\GameRoomArea\Views\GameRoom\Index.cshtml" />
     <Content Include="Areas\GameRoomArea\Views\GameRoom\_PlayerCardPartial.cshtml" />
+    <Content Include="Areas\PlayerArea\Views\web.config" />
+    <Content Include="Areas\PlayerArea\Views\Player\Index.cshtml" />
     <None Include="Views\Shared\_PlayLayout.cshtml" />
     <Content Include="Areas\LoginArea\Views\web.config" />
     <Content Include="Areas\PVPArea\Views\web.config" />
@@ -313,6 +325,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\AdminArea\Controllers\" />
+    <Folder Include="Areas\AdminArea\Data\" />
+    <Folder Include="Areas\AdminArea\Views\Shared\" />
     <Folder Include="Areas\Chess\Data\" />
     <Folder Include="Areas\Chess\Views\Shared\" />
     <Folder Include="Areas\CommonConfigurationArea\Controllers\" />
@@ -323,6 +338,8 @@
     <Folder Include="Areas\GameRoomArea\Views\Shared\" />
     <Folder Include="Areas\LoginArea\Data\" />
     <Folder Include="Areas\LoginArea\Views\Shared\" />
+    <Folder Include="Areas\PlayerArea\Data\" />
+    <Folder Include="Areas\PlayerArea\Views\Shared\" />
     <Folder Include="Areas\PVPArea\Data\" />
     <Folder Include="Areas\PVPArea\Views\Shared\" />
     <Folder Include="Areas\UserArea\Data\" />

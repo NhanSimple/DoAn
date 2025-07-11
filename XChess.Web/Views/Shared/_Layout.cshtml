@@ -9,44 +9,53 @@
     @RenderSection("styles", required: false)
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-3">
-        <a class="navbar-brand" href="#">XChess</a>
-        <div class="ms-auto d-flex align-items-center">
-            <span class="text-white me-3">Bạn chưa đăng nhập</span>
-            <button class="btn btn-outline-light btn-sm me-2">Login</button>
-            <button class="btn btn-light btn-sm">Logout</button>
+    <nav class="navbar navbar-expand-lg navbar-dark px-3" style="background-color: #444; ">
+
+        <a class="navbar-brand fw-bold text-white" href="#">♞ XChess</a>
+
+        <div class="ms-auto d-flex align-items-center gap-2">
+
+            <div class="dropdown">
+                <button class="btn btn-outline-light dropdown-toggle btn-sm" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    👤 Account
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end">
+                    <li><a class="dropdown-item" href="#">Profile</a></li>
+                    <li><a class="dropdown-item" href="#">Settings</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item text-danger" href="#">Logout</a></li>
+                </ul>
+            </div>
         </div>
     </nav>
+
     <div id="toast-container"></div>
-    <div id="layout-wrapper">
+
+    <div id="layout-wrapper" class="fade-wrapper">
         <div class="main-content">
             <div class="page-content">
-                <div class="page-header">
+                <div class="page-header"></div>
 
-
-                </div>
                 <div>
                     @RenderBody()
                 </div>
+
                 <div id="MasterModal" class="modal fade" role="dialog" data-keyboard="false" data-backdrop="static" style="z-index:1051">
                 </div>
             </div>
-
-            @*<li>@Html.ActionLink("Send Email", "SendEmail", "Home", new { area = "" }, new { @class = "nav-link" })</li>*@
-
         </div>
         @Html.Partial("_ModalPartial")
     </div>
 
     @Scripts.Render("~/bundles/jquery")
-
     @Scripts.Render("~/assets/appjs")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
-
-
-
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            console.log("✅ DOM Loaded");
+            document.querySelector(".fade-wrapper").classList.add("loaded");
+        });
+    </script>
 </body>
-
-
 </html>

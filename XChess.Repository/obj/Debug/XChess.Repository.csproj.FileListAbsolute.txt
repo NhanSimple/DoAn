@@ -30,3 +30,12 @@ D:\DoAnTotNghiep\Code\XChess\XChess.Repository\obj\Debug\XChess.Repository.dll
 D:\DoAnTotNghiep\Code\XChess\XChess.Repository\obj\Debug\XChess.Repository.pdb
 D:\DoAnTotNghiep\Code\XChess\XChess.Repository\bin\Debug\XChess.Infrastructure.dll
 D:\DoAnTotNghiep\Code\XChess\XChess.Repository\bin\Debug\XChess.Infrastructure.pdb
+D:\DoAnTotNghiep\Code\XChess\XChess.Repository\bin\Debug\BCrypt.Net-Next.dll
+D:\DoAnTotNghiep\Code\XChess\XChess.Repository\bin\Debug\System.Memory.dll
+D:\DoAnTotNghiep\Code\XChess\XChess.Repository\bin\Debug\System.Numerics.Vectors.dll
+D:\DoAnTotNghiep\Code\XChess\XChess.Repository\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\DoAnTotNghiep\Code\XChess\XChess.Repository\bin\Debug\System.Buffers.dll
+D:\DoAnTotNghiep\Code\XChess\XChess.Repository\bin\Debug\BCrypt.Net-Next.xml
+D:\DoAnTotNghiep\Code\XChess\XChess.Repository\bin\Debug\System.Memory.xml
+D:\DoAnTotNghiep\Code\XChess\XChess.Repository\bin\Debug\System.Numerics.Vectors.xml
+D:\DoAnTotNghiep\Code\XChess\XChess.Repository\bin\Debug\System.Buffers.xml

@@ -1,48 +1,196 @@
-@{
+﻿@{
     Layout = "~/Views/Shared/_AuthLayout.cshtml";
     ViewBag.Title = "XChess Auth";
 }
+@using XChess.Areas.LoginArea.Model
+@model AuthPageVM
 
-<!-- Login Form -->
-<form id="loginForm" class="auth-form active">
-    <input type="text" class="form-control mb-3" placeholder="Username" />
-    <input type="password" class="form-control mb-3" placeholder="Password" />
-    <button type="submit" class="btn btn-auth w-100">Login</button>
+<!-- Form Đăng nhập -->
+@using (Html.BeginForm("Login", "Login", new { area = "LoginArea" }, FormMethod.Post, new { @id = "loginForm", @class = "auth-form active" }))
+{
+    @Html.TextBoxFor(m => m.Login.Email, new { @class = "form-control mb-3", placeholder = "Email", required = "required", autocomplete = "email" })
+    @Html.PasswordFor(m => m.Login.Password, new { @class = "form-control mb-3", placeholder = "Mật khẩu", required = "required", autocomplete = "current-password" })
+
+    <button type="submit" class="btn btn-auth w-100">Đăng nhập</button>
+
     <div class="auth-links">
-        <a onclick="showForm('forgotForm')">Forgot Password?</a>
-        <a onclick="showForm('registerForm')">Create Account</a>
+        <a onclick="showForm('forgotForm')">Quên mật khẩu?</a>
+        <a onclick="showForm('registerForm')">Tạo tài khoản</a>
     </div>
-</form>
+}
 
-<!-- Register Form -->
+<!-- Form Đăng ký -->
 <form id="registerForm" class="auth-form">
-    <input type="text" class="form-control mb-3" placeholder="Username" />
-    <input type="email" class="form-control mb-3" placeholder="Email" />
-    <input type="password" class="form-control mb-3" placeholder="Password" />
-    <input type="password" class="form-control mb-3" placeholder="Confirm Password" />
-    <button type="submit" class="btn btn-auth w-100">Register</button>
-    <div class="auth-links">
-        <a onclick="showForm('loginForm')">Back to Login</a>
-        <span></span>
+    <input name="Register.Username" class="form-control mb-3" placeholder="Tên người dùng" required autocomplete="username" />
+    <input name="Register.Email" class="form-control mb-3" placeholder="Email" type="email" required autocomplete="email" />
+    <input name="Register.Password" class="form-control mb-3" placeholder="Mật khẩu" type="password" required autocomplete="new-password" />
+    <input name="Register.ConfirmPassword" class="form-control mb-3" placeholder="Nhập lại mật khẩu" type="password" required autocomplete="new-password" />
+
+    <button type="submit" class="btn btn-auth w-100">Đăng ký</button>
+    <div class="auth-links text-center mt-3">
+        <a onclick="showForm('loginForm')">Về đăng nhập</a>
     </div>
 </form>
 
-<!-- Forgot Password Form -->
+<!-- Form xác minh đăng ký -->
+<form id="verifyForm" class="auth-form">
+    <label for="verifyCode">Mã xác minh:</label>
+    <input type="text" name="VerifyCode.Code" id="verifyCode"
+           class="form-control text-center mb-3" maxlength="6" required />
+
+    <div class="d-flex gap-2 mb-3">
+        <button type="submit" class="btn btn-auth w-100">Xác minh</button>
+        <button type="button" id="resendBtn_register" class="btn btn-secondary w-100" onclick="resendVerificationCode('register')">Gửi lại mã</button>
+    </div>
+
+    <div class="auth-links text-center">
+        <a onclick="showFormWithData('registerForm', tempRegisterData)">Về đăng ký</a>
+    </div>
+</form>
+
+<!-- Form Quên mật khẩu -->
 <form id="forgotForm" class="auth-form">
-    <input type="email" class="form-control mb-3" placeholder="Enter your email" />
-    <button type="submit" class="btn btn-auth w-100">Reset Password</button>
+    <input type="email" name="ForgotPassword.Email" class="form-control mb-3" placeholder="Email" required autocomplete="email" />
+    <input type="password" name="ForgotPassword.Password" class="form-control mb-3" placeholder="Mật khẩu mới" required autocomplete="new-password" />
+    <input type="password" name="ForgotPassword.ConfirmPassword" class="form-control mb-3" placeholder="Xác nhận mật khẩu mới" required autocomplete="new-password" />
+
+    <button type="submit" class="btn btn-auth w-100">Gửi mã xác minh</button>
     <div class="auth-links">
-        <a onclick="showForm('loginForm')">Back to Login</a>
-        <span></span>
+        <a onclick="showForm('loginForm')">Về đăng nhập</a>
     </div>
 </form>
 
-@section scripts{
-    <script>
-        function showForm(formId) {
-            document.querySelectorAll('.auth-form').forEach(f => f.classList.remove('active'));
-            document.getElementById(formId).classList.add('active');
-        }
-    </script>
+<!-- Form xác minh mã quên mật khẩu -->
+<form id="resetForm" class="auth-form">
+    <label for="resetCode">Mã xác minh:</label>
+    <input type="text" name="RsPassCode.Code" id="resetCode"
+           class="form-control text-center mb-3" maxlength="6" required />
 
+    <div class="d-flex gap-2 mb-3">
+        <button type="submit" class="btn btn-auth w-100">Xác minh & Đặt lại</button>
+        <button type="button" id="resendBtn_forgot" class="btn btn-secondary w-100" onclick="resendVerificationCode('forgot')">Gửi lại mã</button>
+    </div>
+
+    <div class="auth-links text-center">
+        <a onclick="showFormWithData('forgotForm', tempForgotData)">Về bước trước</a>
+    </div>
+</form>
+
+@section scripts {
+    <script>
+        let tempRegisterData = {}, tempForgotData = {};
+        let countdown = 60, resendAttempts = 0, maxResendAttempts = 3, countdownInterval = null;
+
+        function showForm(id) {
+            document.querySelectorAll('.auth-form').forEach(f => f.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+        }
+
+        function showFormWithData(id, data) {
+            showForm(id);
+            for (const key in data) {
+                $(`input[name='${key}']`).val(data[key]);
+            }
+        }
+
+        function startCountdown(btnId) {
+            const btn = document.getElementById(btnId);
+            if (!btn) return;
+
+            btn.disabled = true;
+            btn.innerText = `Gửi lại mã (${countdown}s)`;
+            countdownInterval = setInterval(() => {
+                countdown--;
+                if (countdown <= 0) {
+                    clearInterval(countdownInterval);
+                    btn.disabled = false;
+                    btn.innerText = "Gửi lại mã";
+                    countdown = 60;
+                } else {
+                    btn.innerText = `Gửi lại mã (${countdown}s)`;
+                }
+            }, 1000);
+        }
+
+        function resendVerificationCode(type) {
+            if (resendAttempts >= maxResendAttempts) return alert("Đã quá số lần gửi lại!");
+            let data, url, btnId;
+
+            if (type === "register") {
+                data = tempRegisterData;
+                url = "/LoginArea/Login/Register";
+                btnId = "resendBtn_register";
+            } else {
+                data = tempForgotData;
+                url = "/LoginArea/Login/ForgotPassword";
+                btnId = "resendBtn_forgot";
+            }
+
+            if (!data || Object.keys(data).length === 0) return alert("Không có dữ liệu để gửi lại mã!");
+
+            $.post(url, data, res => {
+                if (res.success) {
+                    alert("Mã xác minh đã được gửi lại.");
+                    resendAttempts++;
+                    startCountdown(btnId);
+                } else {
+                    alert(res.message || "Không gửi lại được mã.");
+                }
+            }).fail(() => alert("Lỗi khi gửi lại mã."));
+        }
+
+        // Đăng ký submit
+        $("#registerForm").submit(function (e) {
+            e.preventDefault();
+            tempRegisterData = Object.fromEntries($(this).serializeArray().map(i => [i.name, i.value]));
+            resendAttempts = 0;
+            $.post("/LoginArea/Login/Register", tempRegisterData, res => {
+                if (res.success) showForm("verifyForm");
+                else alert(res.message || "Đăng ký thất bại.");
+            }).fail(() => alert("Lỗi kết nối server!"));
+        });
+
+        // Xác minh đăng ký
+        $("#verifyForm").submit(function (e) {
+            e.preventDefault();
+            const data = {
+                ...tempRegisterData,
+                "VerifyCode.Code": $("#verifyCode").val()
+            };
+            $.post("/LoginArea/Login/ConfirmRegister", data, res => {
+                if (res.success) {
+                    alert("Đăng ký thành công!");
+                    clearInterval(countdownInterval);
+                    showForm("loginForm");
+                } else alert(res.message || "Mã không đúng.");
+            }).fail(() => alert("Lỗi xác minh!"));
+        });
+
+        // Quên mật khẩu submit
+        $("#forgotForm").submit(function (e) {
+            e.preventDefault();
+            tempForgotData = Object.fromEntries($(this).serializeArray().map(i => [i.name, i.value]));
+            resendAttempts = 0;
+            $.post("/LoginArea/Login/ForgotPassword", tempForgotData, res => {
+                if (res.success) showForm("resetForm");
+                else alert(res.message || "Không thể gửi mã xác minh.");
+            }).fail(() => alert("Lỗi kết nối server!"));
+        });
+
+        // Xác minh đặt lại mật khẩu
+        $("#resetForm").submit(function (e) {
+            e.preventDefault();
+            const data = {
+                ...tempForgotData,
+                "RsPassCode.Code": $("#resetCode").val()
+            };
+            $.post("/LoginArea/Login/ConfirmReset", data, res => {
+                if (res.success) {
+                    alert("Đặt lại mật khẩu thành công!");
+                    clearInterval(countdownInterval);
+                    showForm("loginForm");
+                } else alert(res.message || "Mã không đúng.");
+            }).fail(() => alert("Lỗi xác minh!"));
+        });
+    </script>
 }

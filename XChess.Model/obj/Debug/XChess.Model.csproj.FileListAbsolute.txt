@@ -32,3 +32,15 @@ D:\DoAnTotNghiep\Code\XChess\XChess.Model\bin\Debug\XChess.Infrastructure.dll
 D:\DoAnTotNghiep\Code\XChess\XChess.Model\bin\Debug\XChess.Infrastructure.pdb
 D:\DoAnTotNghiep\Code\XChess\XChess.Model\obj\Debug\XChess.Model.Migrations.chinhsuacacbang.resources
 D:\DoAnTotNghiep\Code\XChess\XChess.Model\obj\Debug\XChess.Model.Migrations.chinhsuacacbang2.resources
+D:\DoAnTotNghiep\Code\XChess\XChess.Model\bin\Debug\BCrypt.Net-Next.dll
+D:\DoAnTotNghiep\Code\XChess\XChess.Model\bin\Debug\System.Memory.dll
+D:\DoAnTotNghiep\Code\XChess\XChess.Model\bin\Debug\System.Numerics.Vectors.dll
+D:\DoAnTotNghiep\Code\XChess\XChess.Model\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\DoAnTotNghiep\Code\XChess\XChess.Model\bin\Debug\System.Buffers.dll
+D:\DoAnTotNghiep\Code\XChess\XChess.Model\bin\Debug\BCrypt.Net-Next.xml
+D:\DoAnTotNghiep\Code\XChess\XChess.Model\bin\Debug\System.Memory.xml
+D:\DoAnTotNghiep\Code\XChess\XChess.Model\bin\Debug\System.Numerics.Vectors.xml
+D:\DoAnTotNghiep\Code\XChess\XChess.Model\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+D:\DoAnTotNghiep\Code\XChess\XChess.Model\bin\Debug\System.Buffers.xml
+D:\DoAnTotNghiep\Code\XChess\XChess.Model\obj\Debug\XChess.Model.Migrations.updatedatabse.resources
+D:\DoAnTotNghiep\Code\XChess\XChess.Model\obj\Debug\XChess.Model.Migrations.updatedatabse2.resources

@@ -23,5 +23,7 @@ namespace XChess.Repository.Common
         T GetEmptyIfNullById(object id);
         bool Any(Expression<Func<T, bool>> predicate);
         T FindEmptyIfNullByExp(Expression<Func<T, bool>> predicate);
+        void Update(T entity);
+         
     }
 }

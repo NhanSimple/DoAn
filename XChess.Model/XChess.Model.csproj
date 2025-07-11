@@ -74,6 +74,14 @@
     <Compile Include="Migrations\202507021124257_chinhsuacacbang2.designer.cs">
       <DependentUpon>202507021124257_chinhsuacacbang2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202507101837419_updatedatabse.cs" />
+    <Compile Include="Migrations\202507101837419_updatedatabse.designer.cs">
+      <DependentUpon>202507101837419_updatedatabse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202507101854161_updatedatabse2.cs" />
+    <Compile Include="Migrations\202507101854161_updatedatabse2.designer.cs">
+      <DependentUpon>202507101854161_updatedatabse2.cs</DependentUpon>
+    </Compile>
     <Compile Include="XChessRealTimeContext.cs" />
     <Compile Include="RealTimeModel\GameRoom.cs" />
     <Compile Include="RealTimeModel\GameState.cs" />
@@ -108,6 +116,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202507021124257_chinhsuacacbang2.resx">
       <DependentUpon>202507021124257_chinhsuacacbang2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202507101837419_updatedatabse.resx">
+      <DependentUpon>202507101837419_updatedatabse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202507101854161_updatedatabse2.resx">
+      <DependentUpon>202507101854161_updatedatabse2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

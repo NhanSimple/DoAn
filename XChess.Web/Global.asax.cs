@@ -34,6 +34,7 @@ namespace XChess
             builder.RegisterModule(new EFModule());
             builder.RegisterModule(new ServiceModule());
             builder.RegisterModule(new EngineModule());
+            builder.RegisterModule(new AutoMapperModule());
             var container = builder.Build();
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
             var webSocketServer = container.Resolve<IWebSocketServer>();

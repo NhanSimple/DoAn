@@ -1,0 +1,23 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "XChess";
+}
+
+@section Styles {
+    <style>
+       
+    </style>
+}
+
+<div class="d-flex flex-column align-items-center justify-content-center position-relative">
+
+    <!-- Các nút chức năng -->
+    <div class="btn-wrapper d-flex flex-column align-items-center gap-3" id="main-flex-container">
+        <button class="btn btn-outline-light chess-button">Play with a person</button>
+        <button class="btn btn-primary chess-button">Play with AI</button>
+        <button class="btn btn-success chess-button">View instructions</button>
+        <button class="btn btn-outline-light chess-button">View History</button>
+        <button class="btn btn-outline-light chess-button">Settings</button>
+        <button class="btn btn-dark chess-button btn-dark-icon">♟</button>
+    </div>
+</div>

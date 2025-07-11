@@ -13,6 +13,7 @@ namespace XChess.Model.Entities
     public class User : AuditableEntity<long>
     {
         public string UserName { get; set; }
+        [StringLength(255)]
         public string Email { get; set; }
         public string PasswordHash { get; set; }
         public virtual ICollection<UserRole> UserRoles { get; set; }

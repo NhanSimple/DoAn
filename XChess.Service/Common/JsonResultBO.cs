@@ -11,6 +11,7 @@ namespace XChess.Service.Common
         public bool Status { get; set; }
         public string Message { get; set; }
         public object Param { get; set; }
+        public string RedirectUrl { get; set; }
         public JsonResultBO(bool st)
         {
             Status = st;

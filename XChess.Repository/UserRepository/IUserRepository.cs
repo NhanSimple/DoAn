@@ -7,5 +7,7 @@ namespace XChess.Repository.UserRepository
     {
         User GetById(int id);
         string Helloworld();
+        bool ExistsByEmail(string email);
+        bool TryGetByEmail(string email, out User user);
     }
 }

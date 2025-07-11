@@ -2,17 +2,11 @@
 
 namespace XChess.Areas.LoginArea
 {
-    public class LoginAreaAreaRegistration : AreaRegistration 
+    public class LoginAreaRegistration : AreaRegistration 
     {
-        public override string AreaName 
-        {
-            get 
-            {
-                return "LoginArea";
-            }
-        }
+        public override string AreaName => "LoginArea";
 
-        public override void RegisterArea(AreaRegistrationContext context) 
+        public override void RegisterArea(AreaRegistrationContext context)
         {
             context.MapRoute(
                 "LoginArea_default",

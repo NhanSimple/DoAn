@@ -25,5 +25,21 @@ namespace XChess.Service.UserService
 
            
         }
+        public override void Create(User user)
+        {
+            if (_UserRepository.ExistsByEmail(user.Email))
+                throw new Exception("Email đã tồn tại.");
+
+            base.Create(user);
+        }
+        public bool IsEmailTaken(string email)
+        {
+            return _UserRepository.ExistsByEmail(email);
+        }
+
+        public bool TryGetByEmail(string email, out User user)
+        {
+            return _UserRepository.TryGetByEmail(email, out user);
+        }
     }
 }
