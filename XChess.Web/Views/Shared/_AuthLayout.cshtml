@@ -9,20 +9,38 @@
 
 </head>
 
-<body class="d-flex justify-content-center align-items-center">
-    <div class="auth-container">
-        <!-- Logo -->
-        <div class="auth-logo">
-            <a href="/">♔<span>X</span>Chess</a>
+<body style="min-height: 100vh; position: relative;">
+    <div id="toast-container"></div>
+    <div class="d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+        <div class="auth-container">
+            <!-- Logo -->
+            <div class="auth-logo">
+                <a href="/">♔<span>X</span>Chess</a>
+            </div>
+
+            @RenderBody()
         </div>
-
-        @RenderBody()
-
     </div>
 
-    @Scripts.Render("~/bundles/bootstrap")
-
     @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/assets/appjs")
     @RenderSection("scripts", required: false)
+    @if (ViewBag.Error != null)
+    {
+        <script>
+         document.addEventListener("DOMContentLoaded", function () {
+             NotiError("@Html.Raw(HttpUtility.JavaScriptStringEncode(ViewBag.Error.ToString()))");
+         });
+        </script>
+    }
+    @if (ViewBag.Success != null)
+    {
+        <script>
+         document.addEventListener("DOMContentLoaded", function () {
+             NotiSuccess("@Html.Raw(HttpUtility.JavaScriptStringEncode(ViewBag.Success.ToString()))");
+         });
+        </script>
+    }
 </body>
 </html>

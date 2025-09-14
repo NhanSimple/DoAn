@@ -26,6 +26,13 @@ namespace XChess.Model
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Properties<DateTime>()
+       .Configure(c => c.HasColumnType("datetime2"));
+
+            modelBuilder.Properties<DateTime?>()
+                .Configure(c => c.HasColumnType("datetime2"));
+
             modelBuilder.Entity<MatchPlayer>()
        .HasKey(x => new { x.MatchId, x.UserId }); // Composite key     
             modelBuilder.Entity<MatchResult>()

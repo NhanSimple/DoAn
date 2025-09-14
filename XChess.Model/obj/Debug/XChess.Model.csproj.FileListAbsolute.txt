@@ -25,7 +25,6 @@ D:\DoAnTotNghiep\Code\XChess\XChess.Model\obj\Debug\XChess.Model.Migrations.init
 D:\DoAnTotNghiep\Code\XChess\XChess.Model\obj\Debug\XChess.Model.Migrations.updateUser.resources
 D:\DoAnTotNghiep\Code\XChess\XChess.Model\obj\Debug\XChess.Model.csproj.GenerateResource.cache
 D:\DoAnTotNghiep\Code\XChess\XChess.Model\obj\Debug\XChess.Model.csproj.CoreCompileInputs.cache
-D:\DoAnTotNghiep\Code\XChess\XChess.Model\obj\Debug\XChess.Model.csproj.CopyComplete
 D:\DoAnTotNghiep\Code\XChess\XChess.Model\obj\Debug\XChess.Model.dll
 D:\DoAnTotNghiep\Code\XChess\XChess.Model\obj\Debug\XChess.Model.pdb
 D:\DoAnTotNghiep\Code\XChess\XChess.Model\bin\Debug\XChess.Infrastructure.dll
@@ -44,3 +43,6 @@ D:\DoAnTotNghiep\Code\XChess\XChess.Model\bin\Debug\System.Runtime.CompilerServi
 D:\DoAnTotNghiep\Code\XChess\XChess.Model\bin\Debug\System.Buffers.xml
 D:\DoAnTotNghiep\Code\XChess\XChess.Model\obj\Debug\XChess.Model.Migrations.updatedatabse.resources
 D:\DoAnTotNghiep\Code\XChess\XChess.Model\obj\Debug\XChess.Model.Migrations.updatedatabse2.resources
+D:\DoAnTotNghiep\Code\XChess\XChess.Model\obj\Debug\XChess.M.E7E26B63.Up2Date
+D:\DoAnTotNghiep\Code\XChess\XChess.Model\obj\Debug\XChess.Model.Migrations.capnhatGamestate.resources
+D:\DoAnTotNghiep\Code\XChess\XChess.Model\obj\Debug\XChess.Model.Migrations.capnhatDatetime2.resources

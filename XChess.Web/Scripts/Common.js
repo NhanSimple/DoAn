@@ -41,40 +41,38 @@ function NotiSuccess(message) {
 function NotiError(message) {
     showToast(message, 3000, "#CD0000")
 }
-function showToast(message, duration, color) {
+function showToast(message, duration = 3000, color = "#4CAF50") {
     const container = document.getElementById("toast-container");
+
     const toast = document.createElement("div");
     toast.className = "toast";
-    toast.textContent = message;
-    toast.style.background = color;
-    container.appendChild(toast);
+    toast.style.backgroundColor = color;
 
-    const closeButton = document.createElement('button');
-    closeButton.textContent = 'x';
-    closeButton.classList.add('close-btn');
+    const text = document.createElement("span");
+    text.textContent = message;
+    toast.appendChild(text);
 
-    // Thêm nút vào toast
+    const closeButton = document.createElement("button");
+    closeButton.textContent = "×";
+    closeButton.classList.add("close-btn");
+    closeButton.onclick = () => {
+        toast.classList.remove("show");
+        setTimeout(() => toast.remove(), 300);
+    };
     toast.appendChild(closeButton);
 
-    // Hiển thị toast
+    container.appendChild(toast);
+
     setTimeout(() => {
         toast.classList.add("show");
-    }, 100);
+    }, 50);
 
-    // Thêm sự kiện đóng toast khi click vào nút
-    closeButton.addEventListener('click', function () {
-        toast.style.opacity = '0';
-        setTimeout(() => {
-            setTimeout(() => toast.remove(), 100);
-        }, 500); // Thời gian chờ để toast mờ dần
-    });
-
-    // Ẩn và xóa toast sau `duration` ms
     setTimeout(() => {
         toast.classList.remove("show");
-        setTimeout(() => toast.remove(), 100);
+        setTimeout(() => toast.remove(), 300);
     }, duration);
 }
+
 
 function CreateAction(url) {
     AjaxCall(url, 'get', null, function (rs) {

@@ -4,7 +4,7 @@
 }
 @using XChess.Areas.LoginArea.Model
 @model AuthPageVM
-
+<div id="toast-container"></div>
 <!-- Form Đăng nhập -->
 @using (Html.BeginForm("Login", "Login", new { area = "LoginArea" }, FormMethod.Post, new { @id = "loginForm", @class = "auth-form active" }))
 {

@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace XChess.Engine
 {
-    public interface IChessEngine
+    public interface IChessEngine : IDisposable
     {
         void Start();
         void Stop();
-        Task<bool> IsMoveLegal(string fen, string moveUci);
-        Task<string> GetBestMove(string fen, int depth = 15);
         void SendCommand(string command);
         Task<string> ReadOutputAsync();
+        Task<bool> IsMoveLegal(string fen, string moveUci);
+        Task<string> GetBestMove(string fen, int depth = 15);
     }
 }

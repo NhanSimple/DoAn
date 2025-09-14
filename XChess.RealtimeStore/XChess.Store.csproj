@@ -43,8 +43,12 @@
   <ItemGroup>
     <Compile Include="Common\GenericStore.cs" />
     <Compile Include="Common\IGenericStore.cs" />
+    <Compile Include="EngineSessionStore\EngineSessionStore.cs" />
+    <Compile Include="EngineSessionStore\IEngineSessionStore.cs" />
     <Compile Include="GameRoomStore\GameRoomStore.cs" />
     <Compile Include="GameRoomStore\IGameRoomStore.cs" />
+    <Compile Include="GameStateStore\GameStateStore.cs" />
+    <Compile Include="GameStateStore\IGameStateStore.cs" />
     <Compile Include="GameTimerStore\GameTimerStore.cs" />
     <Compile Include="GameTimerStore\IGameTimerStore.cs" />
     <Compile Include="PlayerConnectionStore\IPlayerConnectionStore.cs" />

@@ -82,6 +82,15 @@
     <Compile Include="Migrations\202507101854161_updatedatabse2.designer.cs">
       <DependentUpon>202507101854161_updatedatabse2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202507131954233_capnhatGamestate.cs" />
+    <Compile Include="Migrations\202507131954233_capnhatGamestate.Designer.cs">
+      <DependentUpon>202507131954233_capnhatGamestate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202507132129015_capnhatDatetime2.cs" />
+    <Compile Include="Migrations\202507132129015_capnhatDatetime2.Designer.cs">
+      <DependentUpon>202507132129015_capnhatDatetime2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RealTimeModel\EngineSession.cs" />
     <Compile Include="XChessRealTimeContext.cs" />
     <Compile Include="RealTimeModel\GameRoom.cs" />
     <Compile Include="RealTimeModel\GameState.cs" />
@@ -122,6 +131,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202507101854161_updatedatabse2.resx">
       <DependentUpon>202507101854161_updatedatabse2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202507131954233_capnhatGamestate.resx">
+      <DependentUpon>202507131954233_capnhatGamestate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202507132129015_capnhatDatetime2.resx">
+      <DependentUpon>202507132129015_capnhatDatetime2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

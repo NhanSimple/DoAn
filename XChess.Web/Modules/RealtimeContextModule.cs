@@ -1,0 +1,21 @@
+﻿using Autofac;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using XChess.Infrastructure.Realtime;
+using XChess.Model;
+
+namespace XChess.Modules
+{
+    public class RealtimeContextModule : Autofac.Module
+    {
+        protected override void Load(ContainerBuilder builder)
+        {
+            builder.RegisterModule(new StoreModule());
+            builder.RegisterType<XChessRealTimeContext>()
+                   .As<IRealtimeContext>()
+                   .SingleInstance();
+        }
+    }
+}

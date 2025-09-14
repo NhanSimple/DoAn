@@ -13,11 +13,11 @@
 
     <!-- Các nút chức năng -->
     <div class="btn-wrapper d-flex flex-column align-items-center gap-3" id="main-flex-container">
-        <button class="btn btn-outline-light chess-button">Play with a person</button>
-        <button class="btn btn-primary chess-button">Play with AI</button>
-        <button class="btn btn-success chess-button">View instructions</button>
-        <button class="btn btn-outline-light chess-button">View History</button>
-        <button class="btn btn-outline-light chess-button">Settings</button>
+        <button class="btn btn-outline-light chess-button" >Chơi với người</button>
+        <button class="btn btn-primary chess-button"   onclick="location.href='@Url.Action("Index", "PVE", new { area = "PVEArea" })'">Chơi với máy</button>
+        <button class="btn btn-success chess-button">Hướng dẫn chơi</button>
+        <button class="btn btn-outline-light chess-button">Lịch sử đấu</button>
+        <button class="btn btn-outline-light chess-button">Cài đặt</button>
         <button class="btn btn-dark chess-button btn-dark-icon">♟</button>
     </div>
 </div>

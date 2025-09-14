@@ -1,8 +1,10 @@
 ﻿using AutoMapper;
+using Newtonsoft.Json;
 using System;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 using System.Web.Security;
+using System.Web.UI.WebControls;
 using XChess.Areas.LoginArea.Model;
 using XChess.Infrastructure.EmailSender;
 using XChess.Infrastructure.PasswordHasher;
@@ -30,7 +32,7 @@ namespace XChess.Areas.LoginArea.Controllers
         public ActionResult Index() => View();
 
         [HttpPost]
-        public ActionResult Login([Bind(Prefix = "Login")] LoginVM login)
+        public ActionResult Login( AuthPageVM vm)
         {
             if (!ModelState.IsValid)
             {
@@ -38,14 +40,27 @@ namespace XChess.Areas.LoginArea.Controllers
                 return View("Index");
             }
 
-            if (login.Email == "abc" && login.Password == "123")
+            var isVl = _UserService.TryGetByEmail(vm.Login.Email, out User user);
+            if (!isVl)
             {
-                FormsAuthentication.SetAuthCookie(login.Email, false);
-                return RedirectToAction("Index", "Player", new { area = "PlayerArea" });
+                ViewBag.Error = "Sai tên đăng nhập !";
+                return View("Index");
             }
 
-            ViewBag.Error = "Sai tên đăng nhập hoặc mật khẩu!";
-            return View("Index");
+            var isValidPassword = _PassworHasher.Verify(vm.Login.Password, user.PasswordHash);
+            if (!isValidPassword)
+            {
+                ViewBag.Error = "Sai mật khẩu!";
+                return View("Index");
+            }
+            var userDataJson = JsonConvert.SerializeObject(new
+            {
+                Id = user.Id,
+                Role = user.UserRoles,
+                Name = user.UserName
+            });
+            FormsAuthentication.SetAuthCookie(userDataJson, false);
+            return RedirectToAction("Index", "Player", new { area = "PlayerArea" });
         }
 
         [HttpPost]
@@ -124,6 +139,12 @@ namespace XChess.Areas.LoginArea.Controllers
             _UserService.Update(user);
 
             return Json(new { success = true });
+        }
+
+        public ActionResult Logout()
+        {
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Index", "Login");
         }
     }
 }

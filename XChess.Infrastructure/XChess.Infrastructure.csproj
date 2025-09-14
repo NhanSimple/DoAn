@@ -69,6 +69,8 @@
     <Compile Include="Realtime\IRealtimeSet.cs" />
     <Compile Include="Realtime\RealTimeContext.cs" />
     <Compile Include="Realtime\RealtimeSet.cs" />
+    <Compile Include="StockfishEngine\IStockfishEngine.cs" />
+    <Compile Include="StockfishEngine\StockfishEngine.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

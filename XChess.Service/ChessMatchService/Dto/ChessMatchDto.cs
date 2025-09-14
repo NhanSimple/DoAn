@@ -13,6 +13,6 @@ namespace XChess.Service.ChessMatchService.Dto
         public DateTime StartedAt { get; set; }
         public DateTime? FinishedAt { get; set; }
         public GameType GameMode { get; set; }
-        public TimeSpan InitialTime { get; set; }
+        public TimeSpan? InitialTime { get; set; }
     }
 }

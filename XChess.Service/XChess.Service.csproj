@@ -47,9 +47,13 @@
     <Compile Include="Common\IGenericStoreService.cs" />
     <Compile Include="Common\IService.cs" />
     <Compile Include="Common\JsonResultBO.cs" />
+    <Compile Include="EngineSessionService\EngineSessionService.cs" />
+    <Compile Include="EngineSessionService\IEngineSessionService.cs" />
     <Compile Include="GameRoomService.cs\Dto\GameRoomDto.cs" />
     <Compile Include="GameRoomService.cs\GameRoomService.cs" />
     <Compile Include="GameRoomService.cs\IGameRoomService.cs" />
+    <Compile Include="GameStateService\GameStateService.cs" />
+    <Compile Include="GameStateService\IGameStateService.cs" />
     <Compile Include="GameTimerService\Dto\GameTimerDto.cs" />
     <Compile Include="GameTimerService\GameTimerService.cs" />
     <Compile Include="GameTimerService\IGameTimerService.cs" />
@@ -71,6 +75,10 @@
     <Compile Include="UserService\UserService.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\XChess.Infrastructure\XChess.Infrastructure.csproj">
+      <Project>{8a16f3d9-e62a-4c8d-91a9-99bfc90b705a}</Project>
+      <Name>XChess.Infrastructure</Name>
+    </ProjectReference>
     <ProjectReference Include="..\XChess.Model\XChess.Model.csproj">
       <Project>{e3c02e65-1333-4522-bc13-f556c16f76fd}</Project>
       <Name>XChess.Model</Name>

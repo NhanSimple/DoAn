@@ -47,10 +47,14 @@ namespace XChess.Store.Common
             _set.Clear();
         }
 
-   
+
         public void Update(string id, T entity)
         {
-            _set.TryAdd(id, entity); //ghi đè thẳng
+            if (_set.ContainsKey(id))
+            {
+                _set.TryRemove(id, out _);
+            }
+            _set.TryAdd(id, entity);
         }
         public IEnumerable<U> GetAllOf<U>() where U : class
         {

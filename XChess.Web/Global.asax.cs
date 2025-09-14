@@ -28,12 +28,12 @@ namespace XChess
             builder.RegisterControllers(typeof(MvcApplication).Assembly);
             builder.RegisterModule<WebSocketModule>();
             //builder.RegisterControllers
+            builder.RegisterModule(new RealtimeContextModule());
             builder.RegisterModule(new RepositoryModule());
             builder.RegisterModule(new StoreModule());
             builder.RegisterModule(new InfrastructureModule());
             builder.RegisterModule(new EFModule());
             builder.RegisterModule(new ServiceModule());
-            builder.RegisterModule(new EngineModule());
             builder.RegisterModule(new AutoMapperModule());
             var container = builder.Build();
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));

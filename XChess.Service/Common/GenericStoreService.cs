@@ -8,7 +8,7 @@ using XChess.Store.Common;
 
 namespace XChess.Service.Common
 {
-    public class GenericStoreService<T> where T : class
+    public class GenericStoreService<T>: IGenericStoreService<T> where T : class
     {
         private readonly IGenericStore<T> _store;
         //private readonly IUnitOfWork _unitOfWork;
@@ -37,8 +37,9 @@ namespace XChess.Service.Common
             return _store.TryGet(id, out entity);
         }
 
-        public bool TryAdd(string id, T entity)
+        public bool TryAdd(string id,T entity)
         {
+
             return _store.TryAdd(id, entity);
         }
 
@@ -65,6 +66,11 @@ namespace XChess.Service.Common
         public IEnumerable<U> GetAllOf<U>() where U : class
         {
             return _store.GetAllOf<U>();
+        }
+
+        public bool Exists(string id)
+        {
+            return _store.Contains(id);
         }
     }
 }

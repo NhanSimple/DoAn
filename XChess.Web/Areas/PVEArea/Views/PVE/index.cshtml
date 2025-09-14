@@ -1,0 +1,177 @@
+﻿@{
+    ViewBag.Title = "Chơi với Máy";
+    Layout = "~/Views/Shared/_PlayLayout.cshtml";
+}
+
+<div class="d-flex justify-content-center align-items-center vh-100 px-4">
+    <!-- Người chơi -->
+    <div class="card text-center me-4 flex-shrink-0" style="width: 180px;">
+        <div class="card-body">
+            <h5 class="fw-bold">Bạn</h5>
+            <div id="playerColor" class="text-muted mb-2">(Trắng)</div>
+            <div id="playerStatus" class="fw-semibold text-success">Chưa bắt đầu</div>
+        </div>
+    </div>
+
+    <!-- Bàn cờ -->
+    <div class="chessboard-container d-flex justify-content-center align-items-center">
+        <svg id="chessboard" class="chessboard border border-3 rounded-3"
+             style="pointer-events: none;"
+             xmlns="http://www.w3.org/2000/svg" width="320" height="320" viewBox="0 0 320 320" preserveAspectRatio="xMidYMid meet">
+        </svg>
+    </div>
+
+    <!-- Máy -->
+    <div class="card text-center ms-4 flex-shrink-0" style="width: 180px;">
+        <div class="card-body">
+            <h5 class="fw-bold">Máy</h5>
+            <div id="aiLevel" class="text-muted mb-2">Độ khó: Dễ</div>
+            <div id="aiStatus" class="fw-semibold text-danger">Chưa bắt đầu</div>
+        </div>
+    </div>
+</div>
+
+<!-- Dialog phong tốt -->
+<div id="promotion-dialog" class="hidden" style="position:absolute; background:#fff; border:1px solid #333; padding:10px; display:flex; gap:10px; z-index:10;">
+    <div class="promotion-options"></div>
+</div>
+
+<!-- Modal kết quả -->
+<div class="modal fade" id="gameResultModal" tabindex="-1" aria-labelledby="gameResultModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="gameResultModalLabel">Kết quả trận đấu</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Đóng"></button>
+            </div>
+            <div class="modal-body" id="gameResultMessage"></div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" onclick="location.reload()">Chơi lại</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Form chọn chế độ -->
+<div id="pveSetupForm" class="position-fixed top-0 start-0 w-100 h-100 bg-dark bg-opacity-50 d-flex justify-content-center align-items-center" style="z-index:9999;">
+    <form id="pveForm" class="bg-white rounded-4 shadow-lg p-4 px-5 border border-3 border-secondary" style="min-width:420px;" onsubmit="return false;">
+        <div class="text-center mb-4">
+            <h4 class="fw-bold text-uppercase border-bottom pb-2">CÀI ĐẶT TRẬN ĐẤU CỜ VUA</h4>
+        </div>
+        <div class="mb-4">
+            <div class="fw-semibold mb-2 fs-6">1. CHỌN ĐỘ KHÓ:</div>
+            <div class="form-check ms-3 mb-1"><input class="form-check-input" type="radio" name="difficulty" value="3" checked><label class="form-check-label">Dễ</label></div>
+            <div class="form-check ms-3 mb-1"><input class="form-check-input" type="radio" name="difficulty" value="5"><label class="form-check-label">Trung bình</label></div>
+            <div class="form-check ms-3 mb-1"><input class="form-check-input" type="radio" name="difficulty" value="8"><label class="form-check-label">Khó</label></div>
+            <div class="form-check ms-3"><input class="form-check-input" type="radio" name="difficulty" value="12"><label class="form-check-label">Rất khó</label></div>
+        </div>
+        <div class="mb-4">
+            <div class="fw-semibold mb-2 fs-6">2. CHỌN QUÂN:</div>
+            <div class="form-check ms-3 mb-1"><input class="form-check-input" type="radio" name="color" value="white" checked><label class="form-check-label">Trắng (Đi trước)</label></div>
+            <div class="form-check ms-3"><input class="form-check-input" type="radio" name="color" value="black"><label class="form-check-label">Đen (Đi sau)</label></div>
+        </div>
+        <div class="text-center">
+            <button type="submit" id="btnStartGame" class="btn btn-dark px-4 py-2 rounded-pill shadow-sm">BẮT ĐẦU TRẬN ĐẤU</button>
+        </div>
+    </form>
+</div>
+
+@section scripts {
+    <script src="~/Scripts/chess.js"></script>
+    <script src="~/Scripts/boardChess.js"></script>
+
+    <script>
+        let currentMatchId = null;
+
+        function updateTurnStatus() {
+            if (currentTurn === playerColor) {
+                $("#playerStatus").text("Đang đi").removeClass().addClass("fw-semibold text-primary");
+                $("#aiStatus").text("Đang chờ").removeClass().addClass("fw-semibold text-warning");
+            } else {
+                $("#playerStatus").text("Đang chờ").removeClass().addClass("fw-semibold text-warning");
+                $("#aiStatus").text("Đang đi").removeClass().addClass("fw-semibold text-primary");
+            }
+        }
+
+        function playerMakeMove(fromRow, fromCol, toRow, toCol, promotion) {
+            updateBoardState(boardState, fromRow, fromCol, toRow, toCol, promotion);
+            renderChess(boardState);
+            currentTurn = (currentTurn === 'w') ? 'b' : 'w';
+            updateTurnStatus();
+
+            const fen = boardStateToFEN(boardState, currentTurn === 'w' ? 0 : 1);
+
+            $.post('/PVEArea/PVE/MakeMoveAI', {
+                matchId: currentMatchId,
+                fen: fen
+            }, function (aiMove) {
+                updateBoardState(boardState, aiMove.fromRow, aiMove.fromCol, aiMove.toRow, aiMove.toCol, aiMove.promotion);
+                renderChess(boardState);
+                currentTurn = (currentTurn === 'w') ? 'b' : 'w';
+                updateTurnStatus();
+
+                if (isKingInCheck(boardState, currentTurn)) {
+                    if (isCheckmate(boardState, currentTurn)) {
+                        showGameResult(`${currentTurn === 'w' ? "Trắng" : "Đen"} bị chiếu hết!`);
+                    } else {
+                        showGameResult(`${currentTurn === 'w' ? "Trắng" : "Đen"} đang bị chiếu!`);
+                    }
+                }
+            }).fail(function (xhr) {
+                alert("Lỗi khi gọi AI: " + xhr.responseText);
+            });
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            drawBoard();
+            renderChess(boardState);
+
+            document.getElementById("pveForm").addEventListener("submit", function (e) {
+                e.preventDefault();
+                startGame();
+            });
+        });
+
+        function startGame() {
+            const level = parseInt(document.querySelector('input[name="difficulty"]:checked').value);
+            const color = document.querySelector('input[name="color"]:checked').value;
+
+            $("#pveSetupForm").addClass("d-none");
+            $("#chessboard").css("pointer-events", "auto");
+
+            playerColor = (color === "white") ? "w" : "b";
+            currentTurn = "w";
+            updateTurnStatus();
+
+            $("#playerColor").text("(" + (color === "white" ? "Trắng" : "Đen") + ")");
+            $("#playerStatus").text("Đang chờ lượt").removeClass().addClass("fw-semibold text-warning");
+            $("#aiLevel").text("Độ khó: " + getLevelName(level));
+            $("#aiStatus").text("Đang chờ lượt").removeClass().addClass("fw-semibold text-warning");
+
+            $.post('/PVEArea/PVE/StartWithAI', { level: level, color: color }, function (matchId) {
+                currentMatchId = matchId;
+
+                if (playerColor === 'b') {
+                    $("#playerStatus").text("Đang chờ").removeClass().addClass("fw-semibold text-warning");
+                    $("#aiStatus").text("Đang đi").removeClass().addClass("fw-semibold text-primary");
+                } else {
+                    $("#playerStatus").text("Đang đi").removeClass().addClass("fw-semibold text-primary");
+                    $("#aiStatus").text("Đang chờ").removeClass().addClass("fw-semibold text-warning");
+                }
+            }).fail(function (xhr) {
+                alert("Tạo trận thất bại: " + xhr.responseText);
+            });
+        }
+
+        function getLevelName(level) {
+            switch (level) {
+                case 3: return "Dễ";
+                case 5: return "Trung bình";
+                case 8: return "Khó";
+                case 12: return "Rất khó";
+                default: return "Không xác định";
+            }
+        }
+    </script>
+}

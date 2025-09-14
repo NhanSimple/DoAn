@@ -8,17 +8,12 @@ using System.Threading.Tasks;
 
 namespace XChess.Engine
 {
-    public class StockfishEngine:IChessEngine
+    public class StockfishEngine : IChessEngine
     {
         private Process _process;
         private StreamWriter _input;
         private StreamReader _output;
         private readonly string _enginePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Engines", "stockfish.exe");
-
-        //public StockfishEngine(string enginePath)
-        //{
-        //    _enginePath = enginePath;
-        //}
 
         public void Start()
         {
@@ -37,6 +32,7 @@ namespace XChess.Engine
             _process.Start();
             _input = _process.StandardInput;
             _output = _process.StandardOutput;
+
             SendCommand("uci");
             SendCommand("isready");
         }

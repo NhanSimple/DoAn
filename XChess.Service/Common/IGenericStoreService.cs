@@ -10,9 +10,10 @@ namespace XChess.Service.Common
     {
         IEnumerable<T> GetAll();
         T GetById(string id);
-        bool Exists(string id);
+        bool Exists(string id); 
         bool TryAdd(string id, T entity);
         bool TryRemove(string id);
         void Clear();
+        void Update(string id, T entity);
     }
 }

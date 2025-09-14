@@ -1,4 +1,24 @@
-﻿<!DOCTYPE html>
+﻿@using Newtonsoft.Json
+
+@{
+    string userName = "Guest";
+
+    if (User.Identity.IsAuthenticated)
+    {
+        try
+        {
+            dynamic userData = JsonConvert.DeserializeObject(User.Identity.Name);
+            userName = userData?.Name ?? "Guest";
+        }
+        catch
+        {
+            userName = "Guest";
+        }
+    }
+}
+
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -13,17 +33,21 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-3">
         <a class="navbar-brand" href="#">XChess</a>
         <div class="ms-auto d-flex align-items-center">
-            @if (!User.Identity.IsAuthenticated)
+            @if (User.Identity.IsAuthenticated)
             {
-                <span class="text-white me-3">Bạn chưa đăng nhập</span>
-                <a href="javascript:void(0)" onclick="CreateAction('/LoginArea/Login/Login')" class="btn btn-outline-light btn-sm me-2">Login</a>
-            }
-            else
-            {
-                <span class="text-white me-3">Xin chào, @User.Identity.Name</span>
-                <form method="post" action="/Account/Logout" class="me-2 mb-0">
-                    <button type="submit" class="btn btn-light btn-sm">Logout</button>
-                </form>
+                <div class="dropdown">
+                    <button class="btn btn-outline-light dropdown-toggle btn-sm" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <span>👤 @userName</span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="#">Profile</a></li>
+                        <li><a class="dropdown-item" href="#">Settings</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li>
+                            <a class="dropdown-item text-danger" href="@Url.Action("Logout", "Login", new { area = "" })">Logout</a>
+                        </li>
+                    </ul>
+                </div>
             }
         </div>
     </nav>
@@ -39,6 +63,15 @@
                 <div>
                     @RenderBody()
                 </div>
+                <!-- HỘP THOẠI PHONG TỐT -->
+                <div id="promotion-dialog" class="promotion-dialog hidden">
+                    <div class="promotion-options">
+                        <img data-piece="q" src="/Content/Images/wq.svg" />
+                        <img data-piece="r" src="/Content/Images/wr.svg" />
+                        <img data-piece="b" src="/Content/Images/wb.svg" />
+                        <img data-piece="n" src="/Content/Images/wn.svg" />
+                    </div>
+                </div>
                 <div id="MasterModal" class="modal fade" role="dialog" data-keyboard="false" data-backdrop="static" style="z-index:1051">
                 </div>
             </div>
@@ -50,7 +83,6 @@
 
     @Scripts.Render("~/assets/appjs")
     @Scripts.Render("~/bundles/bootstrap")
-    @Scripts.Render("~/assets/appjs")
     @Scripts.Render("~/Scripts/Chessjs")
     @Scripts.Render("~/Scripts/ChessBoardjs")
     @RenderSection("scripts", required: false)

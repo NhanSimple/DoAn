@@ -25,7 +25,6 @@ D:\DoAnTotNghiep\Code\XChess\XChess.Repository\bin\Debug\EntityFramework.xml
 D:\DoAnTotNghiep\Code\XChess\XChess.Repository\bin\Debug\EntityFramework.SqlServer.xml
 D:\DoAnTotNghiep\Code\XChess\XChess.Repository\obj\Debug\XChess.Repository.csproj.AssemblyReference.cache
 D:\DoAnTotNghiep\Code\XChess\XChess.Repository\obj\Debug\XChess.Repository.csproj.CoreCompileInputs.cache
-D:\DoAnTotNghiep\Code\XChess\XChess.Repository\obj\Debug\XChess.Repository.csproj.CopyComplete
 D:\DoAnTotNghiep\Code\XChess\XChess.Repository\obj\Debug\XChess.Repository.dll
 D:\DoAnTotNghiep\Code\XChess\XChess.Repository\obj\Debug\XChess.Repository.pdb
 D:\DoAnTotNghiep\Code\XChess\XChess.Repository\bin\Debug\XChess.Infrastructure.dll
@@ -33,9 +32,9 @@ D:\DoAnTotNghiep\Code\XChess\XChess.Repository\bin\Debug\XChess.Infrastructure.p
 D:\DoAnTotNghiep\Code\XChess\XChess.Repository\bin\Debug\BCrypt.Net-Next.dll
 D:\DoAnTotNghiep\Code\XChess\XChess.Repository\bin\Debug\System.Memory.dll
 D:\DoAnTotNghiep\Code\XChess\XChess.Repository\bin\Debug\System.Numerics.Vectors.dll
-D:\DoAnTotNghiep\Code\XChess\XChess.Repository\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
 D:\DoAnTotNghiep\Code\XChess\XChess.Repository\bin\Debug\System.Buffers.dll
 D:\DoAnTotNghiep\Code\XChess\XChess.Repository\bin\Debug\BCrypt.Net-Next.xml
 D:\DoAnTotNghiep\Code\XChess\XChess.Repository\bin\Debug\System.Memory.xml
 D:\DoAnTotNghiep\Code\XChess\XChess.Repository\bin\Debug\System.Numerics.Vectors.xml
 D:\DoAnTotNghiep\Code\XChess\XChess.Repository\bin\Debug\System.Buffers.xml
+D:\DoAnTotNghiep\Code\XChess\XChess.Repository\obj\Debug\XChess.R.EA11220C.Up2Date

@@ -201,6 +201,9 @@
     <Compile Include="Areas\LoginArea\Model\VerifyCodeVM.cs" />
     <Compile Include="Areas\PlayerArea\Controllers\PlayerController.cs" />
     <Compile Include="Areas\PlayerArea\PlayerAreaAreaRegistration.cs" />
+    <Compile Include="Areas\PVEArea\Controllers\PVEController.cs" />
+    <Compile Include="Areas\PVEArea\Model\PVEMoveVM.cs" />
+    <Compile Include="Areas\PVEArea\PVEAreaAreaRegistration.cs" />
     <Compile Include="Areas\PVPArea\Controllers\PVPController.cs" />
     <Compile Include="Areas\PVPArea\PVPAreaAreaRegistration.cs" />
     <Compile Include="Areas\UserArea\Controllers\UserController.cs" />
@@ -214,8 +217,8 @@
     <Compile Include="Hubs\ChessHub.cs" />
     <Compile Include="Modules\AutoMapperModule.cs" />
     <Compile Include="Modules\EFModule.cs" />
-    <Compile Include="Modules\EngineModule.cs" />
     <Compile Include="Modules\InfrastructureModule.cs" />
+    <Compile Include="Modules\RealtimeContextModule.cs" />
     <Compile Include="Modules\RepositoryModule.cs" />
     <Compile Include="Modules\ServiceModule.cs" />
     <Compile Include="Modules\StoreModule.cs" />
@@ -234,6 +237,8 @@
     <Content Include="Areas\GameRoomArea\Views\GameRoom\_PlayerCardPartial.cshtml" />
     <Content Include="Areas\PlayerArea\Views\web.config" />
     <Content Include="Areas\PlayerArea\Views\Player\Index.cshtml" />
+    <Content Include="Areas\PVEArea\Views\web.config" />
+    <Content Include="Areas\PVEArea\Views\PVE\index.cshtml" />
     <None Include="Views\Shared\_PlayLayout.cshtml" />
     <Content Include="Areas\LoginArea\Views\web.config" />
     <Content Include="Areas\PVPArea\Views\web.config" />
@@ -340,6 +345,8 @@
     <Folder Include="Areas\LoginArea\Views\Shared\" />
     <Folder Include="Areas\PlayerArea\Data\" />
     <Folder Include="Areas\PlayerArea\Views\Shared\" />
+    <Folder Include="Areas\PVEArea\Data\" />
+    <Folder Include="Areas\PVEArea\Views\Shared\" />
     <Folder Include="Areas\PVPArea\Data\" />
     <Folder Include="Areas\PVPArea\Views\Shared\" />
     <Folder Include="Areas\UserArea\Data\" />
@@ -377,10 +384,6 @@
     <ProjectReference Include="..\CommonHelper\XChess.CommonHelper.csproj">
       <Project>{9ebf254f-e96b-442d-b781-625ff6ff0afe}</Project>
       <Name>XChess.CommonHelper</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\XChess.Engine\XChess.Engine.csproj">
-      <Project>{98364839-0b27-4804-8e73-752d4a807d55}</Project>
-      <Name>XChess.Engine</Name>
     </ProjectReference>
     <ProjectReference Include="..\XChess.Infrastructure\XChess.Infrastructure.csproj">
       <Project>{8a16f3d9-e62a-4c8d-91a9-99bfc90b705a}</Project>

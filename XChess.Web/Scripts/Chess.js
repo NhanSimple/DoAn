@@ -1,4 +1,11 @@
 ﻿// Global mapping
+let enPassantTarget = null;
+let whiteKingMoved = false;
+let blackKingMoved = false;
+let whiteRookLeftMoved = false;
+let whiteRookRightMoved = false;
+let blackRookLeftMoved = false;
+let blackRookRightMoved = false;
 function getInitialBoardState() {
     return [
         ['br', 'bn', 'bb', 'bq', 'bk', 'bb', 'bn', 'br'],
@@ -88,16 +95,12 @@ function getValidMovesPawn(boardState, row, col) {
     }
 
     // 4. Bắt tốt qua đường (en passant)
-    // enPassantTarget là {row, col} của ô mà tốt đối phương vừa nhảy qua
-    //if (enPassantTarget) {
-    //    if (Math.abs(enPassantTarget.col - col) === 1 && enPassantTarget.row === row) {
-    //        // Vị trí tốt bên cạnh vừa nhảy 2 bước
-    //        const captureRow = row + direction;
-    //        if (captureRow >= 0 && captureRow <= 7) {
-    //            moves.push({ row: captureRow, col: enPassantTarget.col });
-    //        }
-    //    }
-    //}
+    if (enPassantTarget) {
+        if (enPassantTarget.row === row + direction &&
+            Math.abs(enPassantTarget.col - col) === 1) {
+            moves.push({ row: enPassantTarget.row, col: enPassantTarget.col });
+        }
+    }
     return moves;
 }
 
@@ -285,12 +288,108 @@ function fenToBoardState(fen) {
                 }
             }
         }
+        boardState.push(boardRow);
     }
+    return boardState;
 }
+
+function isKingInCheck(boardState, color) {
+    let kingRow = -1, kingCol = -1;
+
+    // Tìm vị trí vua
+    for (let row = 0; row < 8; row++) {
+        for (let col = 0; col < 8; col++) {
+            const piece = boardState[row][col];
+            if (piece === color + 'k') {
+                kingRow = row;
+                kingCol = col;
+                break;
+            }
+        }
+    }
+
+    if (kingRow === -1 || kingCol === -1) return false;
+
+    // Kiểm tra xem có quân đối phương nào có thể đi tới vị trí vua không
+    const enemyColor = color === 'w' ? 'b' : 'w';
+    for (let row = 0; row < 8; row++) {
+        for (let col = 0; col < 8; col++) {
+            const piece = boardState[row][col];
+            if (piece && piece[0] === enemyColor) {
+                const moves = getValidMoves(boardState, row, col);
+                for (let move of moves) {
+                    if (move.row === kingRow && move.col === kingCol) {
+                        return true;
+                    }
+                }
+            }
+        }
+    }
+
+    return false;
+}
+
+
+function isCheckmate(boardState, color) {
+    if (!isKingInCheck(boardState, color)) return false;
+
+    // Duyệt tất cả quân của người đang bị chiếu
+    for (let row = 0; row < 8; row++) {
+        for (let col = 0; col < 8; col++) {
+            const piece = boardState[row][col];
+            if (!piece || piece[0] !== color) continue;
+
+            const moves = getValidMoves(boardState, row, col);
+
+            for (let move of moves) {
+                const tempBoard = JSON.parse(JSON.stringify(boardState)); // clone
+                updateBoardState(tempBoard, row, col, move.row, move.col);
+
+                if (!isKingInCheck(tempBoard, color)) {
+                    return false; // Vẫn còn ít nhất 1 nước cứu vua
+                }
+            }
+        }
+    }
+
+    return true; // Không còn nước nào tránh được chiếu
+}
+
 
 // cập nhật boarState sau mỗi lần di chuyển 
-function updateBoardState(boardState, fromRow, fromCol, toRow, toCol) {
-    boardState[toRow][toCol] = boardState[fromRow][fromCol];
-    boardState[fromRow][fromCol] = null;
-}
 
+function updateBoardState(boardState, fromRow, fromCol, toRow, toCol, promotionPiece = null) {
+    const piece = boardState[fromRow][fromCol];
+    const color = piece[0];
+    const type = piece[1];
+
+    // 1. Kiểm tra bắt tốt qua đường
+    if (type === 'p' && enPassantTarget && toRow === enPassantTarget.row && toCol === enPassantTarget.col) {
+        const capturedRow = fromRow; // CHỈNH Ở ĐÂY: hàng quân bị bắt là hàng ban đầu
+        boardState[capturedRow][toCol] = null; // Xóa tốt bị bắt qua đường
+    }
+
+    // 2. Cập nhật ô đích
+    boardState[toRow][toCol] = promotionPiece ? color + promotionPiece : piece;
+
+    // 3. Xóa ô cũ
+    boardState[fromRow][fromCol] = null;
+
+    // 4. Nếu tốt vừa đi 2 ô thiết lập en passant target
+    if (type === 'p' && Math.abs(toRow - fromRow) === 2) {
+        const middleRow = (fromRow + toRow) / 2;
+        enPassantTarget = { row: middleRow, col: fromCol };
+    } else {
+        enPassantTarget = null;
+    }
+
+}
+function handleAfterMove(boardState, currentTurn) {
+    const nextColor = currentTurn === 'w' ? 'b' : 'w';
+    if (isKingInCheck(boardState, nextColor)) {
+        console.log(`${nextColor === 'w' ? 'Trắng' : 'Đen'} đang bị chiếu!`);
+        if (isCheckmate(boardState, nextColor)) {
+            alert(`${nextColor === 'w' ? 'Trắng' : 'Đen'} bị chiếu hết! Trò chơi kết thúc.`);
+        }
+    }
+}

@@ -1,0 +1,371 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\DoAnTotNghiep\\Code\\XChess\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{BF1D56D9-CA76-41C0-839C-5FD6DE9AA61F}|XChess.Web\\XChess.Web.csproj|d:\\doantotnghiep\\code\\xchess\\xchess.web\\areas\\pvearea\\views\\pve\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BF1D56D9-CA76-41C0-839C-5FD6DE9AA61F}|XChess.Web\\XChess.Web.csproj|solutionrelative:xchess.web\\areas\\pvearea\\views\\pve\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BF1D56D9-CA76-41C0-839C-5FD6DE9AA61F}|XChess.Web\\XChess.Web.csproj|D:\\DoAnTotNghiep\\Code\\XChess\\xchess.web\\areas\\pvearea\\controllers\\pvecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BF1D56D9-CA76-41C0-839C-5FD6DE9AA61F}|XChess.Web\\XChess.Web.csproj|solutionrelative:xchess.web\\areas\\pvearea\\controllers\\pvecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F8DF5E57-85C3-479A-89F2-81085A0B2732}|XChess.Service\\XChess.Service.csproj|D:\\DoAnTotNghiep\\Code\\XChess\\xchess.service\\chessmatchservice\\chessmatchservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F8DF5E57-85C3-479A-89F2-81085A0B2732}|XChess.Service\\XChess.Service.csproj|solutionrelative:xchess.service\\chessmatchservice\\chessmatchservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BF1D56D9-CA76-41C0-839C-5FD6DE9AA61F}|XChess.Web\\XChess.Web.csproj|D:\\DoAnTotNghiep\\Code\\XChess\\xchess.web\\scripts\\chessboard.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{BF1D56D9-CA76-41C0-839C-5FD6DE9AA61F}|XChess.Web\\XChess.Web.csproj|solutionrelative:xchess.web\\scripts\\chessboard.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BF1D56D9-CA76-41C0-839C-5FD6DE9AA61F}|XChess.Web\\XChess.Web.csproj|D:\\DoAnTotNghiep\\Code\\XChess\\xchess.web\\content\\banco.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{BF1D56D9-CA76-41C0-839C-5FD6DE9AA61F}|XChess.Web\\XChess.Web.csproj|solutionrelative:xchess.web\\content\\banco.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BF1D56D9-CA76-41C0-839C-5FD6DE9AA61F}|XChess.Web\\XChess.Web.csproj|D:\\DoAnTotNghiep\\Code\\XChess\\xchess.web\\scripts\\chess.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{BF1D56D9-CA76-41C0-839C-5FD6DE9AA61F}|XChess.Web\\XChess.Web.csproj|solutionrelative:xchess.web\\scripts\\chess.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3C02E65-1333-4522-BC13-F556C16F76FD}|XChess.Model\\XChess.Model.csproj|D:\\DoAnTotNghiep\\Code\\XChess\\xchess.model\\entities\\chessmatch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E3C02E65-1333-4522-BC13-F556C16F76FD}|XChess.Model\\XChess.Model.csproj|solutionrelative:xchess.model\\entities\\chessmatch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F8DF5E57-85C3-479A-89F2-81085A0B2732}|XChess.Service\\XChess.Service.csproj|D:\\DoAnTotNghiep\\Code\\XChess\\xchess.service\\enginesessionservice\\enginesessionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F8DF5E57-85C3-479A-89F2-81085A0B2732}|XChess.Service\\XChess.Service.csproj|solutionrelative:xchess.service\\enginesessionservice\\enginesessionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F8DF5E57-85C3-479A-89F2-81085A0B2732}|XChess.Service\\XChess.Service.csproj|D:\\DoAnTotNghiep\\Code\\XChess\\xchess.service\\enginesessionservice\\ienginesessionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F8DF5E57-85C3-479A-89F2-81085A0B2732}|XChess.Service\\XChess.Service.csproj|solutionrelative:xchess.service\\enginesessionservice\\ienginesessionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{409D1A6D-9C05-41E3-A8CB-A7B0DAC21B4C}|XChess.RealtimeStore\\XChess.Store.csproj|D:\\DoAnTotNghiep\\Code\\XChess\\xchess.realtimestore\\enginesessionstore\\enginesessionstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{409D1A6D-9C05-41E3-A8CB-A7B0DAC21B4C}|XChess.RealtimeStore\\XChess.Store.csproj|solutionrelative:xchess.realtimestore\\enginesessionstore\\enginesessionstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{409D1A6D-9C05-41E3-A8CB-A7B0DAC21B4C}|XChess.RealtimeStore\\XChess.Store.csproj|D:\\DoAnTotNghiep\\Code\\XChess\\xchess.realtimestore\\enginesessionstore\\ienginesessionstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{409D1A6D-9C05-41E3-A8CB-A7B0DAC21B4C}|XChess.RealtimeStore\\XChess.Store.csproj|solutionrelative:xchess.realtimestore\\enginesessionstore\\ienginesessionstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{409D1A6D-9C05-41E3-A8CB-A7B0DAC21B4C}|XChess.RealtimeStore\\XChess.Store.csproj|D:\\DoAnTotNghiep\\Code\\XChess\\xchess.realtimestore\\gameroomstore\\igameroomstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{409D1A6D-9C05-41E3-A8CB-A7B0DAC21B4C}|XChess.RealtimeStore\\XChess.Store.csproj|solutionrelative:xchess.realtimestore\\gameroomstore\\igameroomstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3C02E65-1333-4522-BC13-F556C16F76FD}|XChess.Model\\XChess.Model.csproj|D:\\DoAnTotNghiep\\Code\\XChess\\xchess.model\\xchessrealtimecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E3C02E65-1333-4522-BC13-F556C16F76FD}|XChess.Model\\XChess.Model.csproj|solutionrelative:xchess.model\\xchessrealtimecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3C02E65-1333-4522-BC13-F556C16F76FD}|XChess.Model\\XChess.Model.csproj|D:\\DoAnTotNghiep\\Code\\XChess\\xchess.model\\realtimemodel\\playerconnection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E3C02E65-1333-4522-BC13-F556C16F76FD}|XChess.Model\\XChess.Model.csproj|solutionrelative:xchess.model\\realtimemodel\\playerconnection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3C02E65-1333-4522-BC13-F556C16F76FD}|XChess.Model\\XChess.Model.csproj|D:\\DoAnTotNghiep\\Code\\XChess\\xchess.model\\realtimemodel\\enginesession.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E3C02E65-1333-4522-BC13-F556C16F76FD}|XChess.Model\\XChess.Model.csproj|solutionrelative:xchess.model\\realtimemodel\\enginesession.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8A16F3D9-E62A-4C8D-91A9-99BFC90B705A}|XChess.Infrastructure\\XChess.Infrastructure.csproj|D:\\DoAnTotNghiep\\Code\\XChess\\xchess.infrastructure\\stockfishengine\\stockfishengine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8A16F3D9-E62A-4C8D-91A9-99BFC90B705A}|XChess.Infrastructure\\XChess.Infrastructure.csproj|solutionrelative:xchess.infrastructure\\stockfishengine\\stockfishengine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8A16F3D9-E62A-4C8D-91A9-99BFC90B705A}|XChess.Infrastructure\\XChess.Infrastructure.csproj|D:\\DoAnTotNghiep\\Code\\XChess\\xchess.infrastructure\\stockfishengine\\istockfishengine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8A16F3D9-E62A-4C8D-91A9-99BFC90B705A}|XChess.Infrastructure\\XChess.Infrastructure.csproj|solutionrelative:xchess.infrastructure\\stockfishengine\\istockfishengine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8A16F3D9-E62A-4C8D-91A9-99BFC90B705A}|XChess.Infrastructure\\XChess.Infrastructure.csproj|D:\\DoAnTotNghiep\\Code\\XChess\\xchess.infrastructure\\realtime\\realtimeset.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8A16F3D9-E62A-4C8D-91A9-99BFC90B705A}|XChess.Infrastructure\\XChess.Infrastructure.csproj|solutionrelative:xchess.infrastructure\\realtime\\realtimeset.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F8DF5E57-85C3-479A-89F2-81085A0B2732}|XChess.Service\\XChess.Service.csproj|D:\\DoAnTotNghiep\\Code\\XChess\\xchess.service\\matchplayerservice\\imatchplayerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F8DF5E57-85C3-479A-89F2-81085A0B2732}|XChess.Service\\XChess.Service.csproj|solutionrelative:xchess.service\\matchplayerservice\\imatchplayerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F8DF5E57-85C3-479A-89F2-81085A0B2732}|XChess.Service\\XChess.Service.csproj|D:\\DoAnTotNghiep\\Code\\XChess\\xchess.service\\matchplayerservice\\matchplayerservice .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F8DF5E57-85C3-479A-89F2-81085A0B2732}|XChess.Service\\XChess.Service.csproj|solutionrelative:xchess.service\\matchplayerservice\\matchplayerservice .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8DDB629A-0AEB-477A-9635-1E8A410C410F}|XChess.Repository\\XChess.Repository.csproj|D:\\DoAnTotNghiep\\Code\\XChess\\xchess.repository\\moverepository\\imoverepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8DDB629A-0AEB-477A-9635-1E8A410C410F}|XChess.Repository\\XChess.Repository.csproj|solutionrelative:xchess.repository\\moverepository\\imoverepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 339,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "RealtimeSet.cs",
+              "DocumentMoniker": "D:\\DoAnTotNghiep\\Code\\XChess\\XChess.Infrastructure\\Realtime\\RealtimeSet.cs",
+              "RelativeDocumentMoniker": "XChess.Infrastructure\\Realtime\\RealtimeSet.cs",
+              "ToolTip": "D:\\DoAnTotNghiep\\Code\\XChess\\XChess.Infrastructure\\Realtime\\RealtimeSet.cs",
+              "RelativeToolTip": "XChess.Infrastructure\\Realtime\\RealtimeSet.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAowCwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-13T12:01:20.849Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ChessMatchService.cs",
+              "DocumentMoniker": "D:\\DoAnTotNghiep\\Code\\XChess\\XChess.Service\\ChessMatchService\\ChessMatchService.cs",
+              "RelativeDocumentMoniker": "XChess.Service\\ChessMatchService\\ChessMatchService.cs",
+              "ToolTip": "D:\\DoAnTotNghiep\\Code\\XChess\\XChess.Service\\ChessMatchService\\ChessMatchService.cs",
+              "RelativeToolTip": "XChess.Service\\ChessMatchService\\ChessMatchService.cs",
+              "ViewState": "AgIAAIwAAAAAAAAAAAAUwM0AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-13T18:44:24.517Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ChessMatch.cs",
+              "DocumentMoniker": "D:\\DoAnTotNghiep\\Code\\XChess\\XChess.Model\\Entities\\ChessMatch.cs",
+              "RelativeDocumentMoniker": "XChess.Model\\Entities\\ChessMatch.cs",
+              "ToolTip": "D:\\DoAnTotNghiep\\Code\\XChess\\XChess.Model\\Entities\\ChessMatch.cs",
+              "RelativeToolTip": "XChess.Model\\Entities\\ChessMatch.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAAwA8AAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-13T18:52:07.399Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "index.cshtml",
+              "DocumentMoniker": "D:\\DoAnTotNghiep\\Code\\XChess\\XChess.Web\\Areas\\PVEArea\\Views\\PVE\\index.cshtml",
+              "RelativeDocumentMoniker": "XChess.Web\\Areas\\PVEArea\\Views\\PVE\\index.cshtml",
+              "ToolTip": "D:\\DoAnTotNghiep\\Code\\XChess\\XChess.Web\\Areas\\PVEArea\\Views\\PVE\\index.cshtml",
+              "RelativeToolTip": "XChess.Web\\Areas\\PVEArea\\Views\\PVE\\index.cshtml",
+              "ViewState": "AgIAAFcAAAAAAAAAAAAqwHsAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-13T19:46:14.911Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PVEController.cs",
+              "DocumentMoniker": "D:\\DoAnTotNghiep\\Code\\XChess\\XChess.Web\\Areas\\PVEArea\\Controllers\\PVEController.cs",
+              "RelativeDocumentMoniker": "XChess.Web\\Areas\\PVEArea\\Controllers\\PVEController.cs",
+              "ToolTip": "D:\\DoAnTotNghiep\\Code\\XChess\\XChess.Web\\Areas\\PVEArea\\Controllers\\PVEController.cs",
+              "RelativeToolTip": "XChess.Web\\Areas\\PVEArea\\Controllers\\PVEController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-13T19:44:46.825Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ChessBoard.js",
+              "DocumentMoniker": "D:\\DoAnTotNghiep\\Code\\XChess\\XChess.Web\\Scripts\\ChessBoard.js",
+              "RelativeDocumentMoniker": "XChess.Web\\Scripts\\ChessBoard.js",
+              "ToolTip": "D:\\DoAnTotNghiep\\Code\\XChess\\XChess.Web\\Scripts\\ChessBoard.js",
+              "RelativeToolTip": "XChess.Web\\Scripts\\ChessBoard.js",
+              "ViewState": "AgIAAKMAAAAAAAAAAAAIwL0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-07-13T20:25:28.057Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "BanCo.css",
+              "DocumentMoniker": "D:\\DoAnTotNghiep\\Code\\XChess\\XChess.Web\\Content\\BanCo.css",
+              "RelativeDocumentMoniker": "XChess.Web\\Content\\BanCo.css",
+              "ToolTip": "D:\\DoAnTotNghiep\\Code\\XChess\\XChess.Web\\Content\\BanCo.css",
+              "RelativeToolTip": "XChess.Web\\Content\\BanCo.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-07-14T03:51:27.805Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Chess.js",
+              "DocumentMoniker": "D:\\DoAnTotNghiep\\Code\\XChess\\XChess.Web\\Scripts\\Chess.js",
+              "RelativeDocumentMoniker": "XChess.Web\\Scripts\\Chess.js",
+              "ToolTip": "D:\\DoAnTotNghiep\\Code\\XChess\\XChess.Web\\Scripts\\Chess.js",
+              "RelativeToolTip": "XChess.Web\\Scripts\\Chess.js",
+              "ViewState": "AgIAAG4BAAAAAAAAAAAmwIoBAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-07-14T03:50:17.798Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "MatchPlayerService .cs",
+              "DocumentMoniker": "D:\\DoAnTotNghiep\\Code\\XChess\\XChess.Service\\MatchPlayerService\\MatchPlayerService .cs",
+              "RelativeDocumentMoniker": "XChess.Service\\MatchPlayerService\\MatchPlayerService .cs",
+              "ToolTip": "D:\\DoAnTotNghiep\\Code\\XChess\\XChess.Service\\MatchPlayerService\\MatchPlayerService .cs",
+              "RelativeToolTip": "XChess.Service\\MatchPlayerService\\MatchPlayerService .cs",
+              "ViewState": "AgIAAM0AAAAAAAAAAAAwwN0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-14T08:04:35.781Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "IMatchPlayerService.cs",
+              "DocumentMoniker": "D:\\DoAnTotNghiep\\Code\\XChess\\XChess.Service\\MatchPlayerService\\IMatchPlayerService.cs",
+              "RelativeDocumentMoniker": "XChess.Service\\MatchPlayerService\\IMatchPlayerService.cs",
+              "ToolTip": "D:\\DoAnTotNghiep\\Code\\XChess\\XChess.Service\\MatchPlayerService\\IMatchPlayerService.cs",
+              "RelativeToolTip": "XChess.Service\\MatchPlayerService\\IMatchPlayerService.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAAB4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-14T08:04:35.25Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "IEngineSessionService.cs",
+              "DocumentMoniker": "D:\\DoAnTotNghiep\\Code\\XChess\\XChess.Service\\EngineSessionService\\IEngineSessionService.cs",
+              "RelativeDocumentMoniker": "XChess.Service\\EngineSessionService\\IEngineSessionService.cs",
+              "ToolTip": "D:\\DoAnTotNghiep\\Code\\XChess\\XChess.Service\\EngineSessionService\\IEngineSessionService.cs",
+              "RelativeToolTip": "XChess.Service\\EngineSessionService\\IEngineSessionService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-14T08:30:02.191Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "EngineSessionService.cs",
+              "DocumentMoniker": "D:\\DoAnTotNghiep\\Code\\XChess\\XChess.Service\\EngineSessionService\\EngineSessionService.cs",
+              "RelativeDocumentMoniker": "XChess.Service\\EngineSessionService\\EngineSessionService.cs",
+              "ToolTip": "D:\\DoAnTotNghiep\\Code\\XChess\\XChess.Service\\EngineSessionService\\EngineSessionService.cs",
+              "RelativeToolTip": "XChess.Service\\EngineSessionService\\EngineSessionService.cs",
+              "ViewState": "AgIAAEgAAAAAAAAAAAAkwF4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-14T08:30:01.316Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "EngineSessionStore.cs",
+              "DocumentMoniker": "D:\\DoAnTotNghiep\\Code\\XChess\\XChess.RealtimeStore\\EngineSessionStore\\EngineSessionStore.cs",
+              "RelativeDocumentMoniker": "XChess.RealtimeStore\\EngineSessionStore\\EngineSessionStore.cs",
+              "ToolTip": "D:\\DoAnTotNghiep\\Code\\XChess\\XChess.RealtimeStore\\EngineSessionStore\\EngineSessionStore.cs",
+              "RelativeToolTip": "XChess.RealtimeStore\\EngineSessionStore\\EngineSessionStore.cs",
+              "ViewState": "AgIAACQAAAAAAAAAAAAkwDoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-14T08:29:20.712Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "IEngineSessionStore.cs",
+              "DocumentMoniker": "D:\\DoAnTotNghiep\\Code\\XChess\\XChess.RealtimeStore\\EngineSessionStore\\IEngineSessionStore.cs",
+              "RelativeDocumentMoniker": "XChess.RealtimeStore\\EngineSessionStore\\IEngineSessionStore.cs",
+              "ToolTip": "D:\\DoAnTotNghiep\\Code\\XChess\\XChess.RealtimeStore\\EngineSessionStore\\IEngineSessionStore.cs",
+              "RelativeToolTip": "XChess.RealtimeStore\\EngineSessionStore\\IEngineSessionStore.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-14T08:29:10.085Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "IGameRoomStore.cs",
+              "DocumentMoniker": "D:\\DoAnTotNghiep\\Code\\XChess\\XChess.RealtimeStore\\GameRoomStore\\IGameRoomStore.cs",
+              "RelativeDocumentMoniker": "XChess.RealtimeStore\\GameRoomStore\\IGameRoomStore.cs",
+              "ToolTip": "D:\\DoAnTotNghiep\\Code\\XChess\\XChess.RealtimeStore\\GameRoomStore\\IGameRoomStore.cs",
+              "RelativeToolTip": "XChess.RealtimeStore\\GameRoomStore\\IGameRoomStore.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-14T08:29:06.935Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "XChessRealTimeContext.cs",
+              "DocumentMoniker": "D:\\DoAnTotNghiep\\Code\\XChess\\XChess.Model\\XChessRealTimeContext.cs",
+              "RelativeDocumentMoniker": "XChess.Model\\XChessRealTimeContext.cs",
+              "ToolTip": "D:\\DoAnTotNghiep\\Code\\XChess\\XChess.Model\\XChessRealTimeContext.cs",
+              "RelativeToolTip": "XChess.Model\\XChessRealTimeContext.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAcwBgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-14T08:28:30.18Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "EngineSession.cs",
+              "DocumentMoniker": "D:\\DoAnTotNghiep\\Code\\XChess\\XChess.Model\\RealTimeModel\\EngineSession.cs",
+              "RelativeDocumentMoniker": "XChess.Model\\RealTimeModel\\EngineSession.cs",
+              "ToolTip": "D:\\DoAnTotNghiep\\Code\\XChess\\XChess.Model\\RealTimeModel\\EngineSession.cs",
+              "RelativeToolTip": "XChess.Model\\RealTimeModel\\EngineSession.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-14T08:27:50.504Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "PlayerConnection.cs",
+              "DocumentMoniker": "D:\\DoAnTotNghiep\\Code\\XChess\\XChess.Model\\RealTimeModel\\PlayerConnection.cs",
+              "RelativeDocumentMoniker": "XChess.Model\\RealTimeModel\\PlayerConnection.cs",
+              "ToolTip": "D:\\DoAnTotNghiep\\Code\\XChess\\XChess.Model\\RealTimeModel\\PlayerConnection.cs",
+              "RelativeToolTip": "XChess.Model\\RealTimeModel\\PlayerConnection.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-14T08:27:44.239Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "IStockfishEngine.cs",
+              "DocumentMoniker": "D:\\DoAnTotNghiep\\Code\\XChess\\XChess.Infrastructure\\StockfishEngine\\IStockfishEngine.cs",
+              "RelativeDocumentMoniker": "XChess.Infrastructure\\StockfishEngine\\IStockfishEngine.cs",
+              "ToolTip": "D:\\DoAnTotNghiep\\Code\\XChess\\XChess.Infrastructure\\StockfishEngine\\IStockfishEngine.cs",
+              "RelativeToolTip": "XChess.Infrastructure\\StockfishEngine\\IStockfishEngine.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAIwBMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-14T08:26:52.648Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "StockfishEngine.cs",
+              "DocumentMoniker": "D:\\DoAnTotNghiep\\Code\\XChess\\XChess.Infrastructure\\StockfishEngine\\StockfishEngine.cs",
+              "RelativeDocumentMoniker": "XChess.Infrastructure\\StockfishEngine\\StockfishEngine.cs",
+              "ToolTip": "D:\\DoAnTotNghiep\\Code\\XChess\\XChess.Infrastructure\\StockfishEngine\\StockfishEngine.cs",
+              "RelativeToolTip": "XChess.Infrastructure\\StockfishEngine\\StockfishEngine.cs",
+              "ViewState": "AgIAAIAAAAAAAAAAAAAkwJYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-14T08:20:09.724Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "IMoveRepository.cs",
+              "DocumentMoniker": "D:\\DoAnTotNghiep\\Code\\XChess\\XChess.Repository\\MoveRepository\\IMoveRepository.cs",
+              "RelativeDocumentMoniker": "XChess.Repository\\MoveRepository\\IMoveRepository.cs",
+              "ToolTip": "D:\\DoAnTotNghiep\\Code\\XChess\\XChess.Repository\\MoveRepository\\IMoveRepository.cs",
+              "RelativeToolTip": "XChess.Repository\\MoveRepository\\IMoveRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-14T08:05:28.978Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

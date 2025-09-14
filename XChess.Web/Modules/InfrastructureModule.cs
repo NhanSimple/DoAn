@@ -3,9 +3,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using XChess.Infrastructure.Realtime;
-using XChess.Infrastructure.PasswordHasher;
 using XChess.Infrastructure.EmailSender;
+using XChess.Infrastructure.PasswordHasher;
+using XChess.Infrastructure.Realtime;
+using XChess.Infrastructure.StockfishEngine;
 using XChess.Model;
 namespace XChess.Modules
 {
@@ -23,6 +24,9 @@ namespace XChess.Modules
                 .InstancePerLifetimeScope();
             builder.RegisterType<GmailEmailSender>().As<IEmailSender>()
                 .InstancePerLifetimeScope();
+            builder.RegisterType<StockfishEngine>()
+                     .As<IStockfishEngine>()
+                     .InstancePerDependency();
         }
     }
 }

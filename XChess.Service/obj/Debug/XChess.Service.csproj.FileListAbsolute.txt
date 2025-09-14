@@ -27,7 +27,6 @@ D:\DoAnTotNghiep\Code\XChess\XChess.Service\bin\Debug\XChess.Repository.dll.conf
 D:\DoAnTotNghiep\Code\XChess\XChess.Service\bin\Debug\EntityFramework.xml
 D:\DoAnTotNghiep\Code\XChess\XChess.Service\obj\Debug\XChess.Service.csproj.AssemblyReference.cache
 D:\DoAnTotNghiep\Code\XChess\XChess.Service\obj\Debug\XChess.Service.csproj.CoreCompileInputs.cache
-D:\DoAnTotNghiep\Code\XChess\XChess.Service\obj\Debug\XChess.Service.csproj.CopyComplete
 D:\DoAnTotNghiep\Code\XChess\XChess.Service\obj\Debug\XChess.Service.dll
 D:\DoAnTotNghiep\Code\XChess\XChess.Service\obj\Debug\XChess.Service.pdb
 D:\DoAnTotNghiep\Code\XChess\XChess.Service\bin\Debug\XChess.Infrastructure.dll
@@ -37,9 +36,9 @@ D:\DoAnTotNghiep\Code\XChess\XChess.Service\bin\Debug\XChess.Store.pdb
 D:\DoAnTotNghiep\Code\XChess\XChess.Service\bin\Debug\BCrypt.Net-Next.dll
 D:\DoAnTotNghiep\Code\XChess\XChess.Service\bin\Debug\System.Memory.dll
 D:\DoAnTotNghiep\Code\XChess\XChess.Service\bin\Debug\System.Numerics.Vectors.dll
-D:\DoAnTotNghiep\Code\XChess\XChess.Service\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
 D:\DoAnTotNghiep\Code\XChess\XChess.Service\bin\Debug\System.Buffers.dll
 D:\DoAnTotNghiep\Code\XChess\XChess.Service\bin\Debug\BCrypt.Net-Next.xml
 D:\DoAnTotNghiep\Code\XChess\XChess.Service\bin\Debug\System.Memory.xml
 D:\DoAnTotNghiep\Code\XChess\XChess.Service\bin\Debug\System.Numerics.Vectors.xml
 D:\DoAnTotNghiep\Code\XChess\XChess.Service\bin\Debug\System.Buffers.xml
+D:\DoAnTotNghiep\Code\XChess\XChess.Service\obj\Debug\XChess.S.09429D84.Up2Date

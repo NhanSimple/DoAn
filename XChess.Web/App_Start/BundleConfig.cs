@@ -21,11 +21,12 @@ namespace XChess
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new Bundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/bootstrap.js"));
+                        "~/Scripts/bootstrap.bundle.min.js"));
             // loginpage
             bundles.Add(new StyleBundle("~/Content/LoginPage/css").Include(
                            "~/Content/bootstrap.css",
                              "~/Content/LoginPage.css"));
+
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css",

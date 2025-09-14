@@ -1,4 +1,23 @@
-﻿<!DOCTYPE html>
+﻿@using Newtonsoft.Json
+
+@{
+    string userName = "Guest";
+
+    if (User.Identity.IsAuthenticated)
+    {
+        try
+        {
+            dynamic userData = JsonConvert.DeserializeObject(User.Identity.Name);
+            userName = userData?.Name ?? "Guest";
+        }
+        catch
+        {
+            userName = "Guest";
+        }
+    }
+}
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -9,23 +28,26 @@
     @RenderSection("styles", required: false)
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark px-3" style="background-color: #444; ">
-
+    <nav class="navbar navbar-expand-lg navbar-dark px-3" style="background-color: #444;">
         <a class="navbar-brand fw-bold text-white" href="#">♞ XChess</a>
 
         <div class="ms-auto d-flex align-items-center gap-2">
-
-            <div class="dropdown">
-                <button class="btn btn-outline-light dropdown-toggle btn-sm" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    👤 Account
-                </button>
-                <ul class="dropdown-menu dropdown-menu-end">
-                    <li><a class="dropdown-item" href="#">Profile</a></li>
-                    <li><a class="dropdown-item" href="#">Settings</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item text-danger" href="#">Logout</a></li>
-                </ul>
-            </div>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <div class="dropdown">
+                    <button class="btn btn-outline-light dropdown-toggle btn-sm" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <span>👤 @userName</span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="#">Profile</a></li>
+                        <li><a class="dropdown-item" href="#">Settings</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li>
+                            <a class="dropdown-item text-danger" href="@Url.Action("Logout", "Login", new { area = "" })">Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            }
         </div>
     </nav>
 
@@ -51,9 +73,9 @@
     @Scripts.Render("~/assets/appjs")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            console.log("✅ DOM Loaded");
             document.querySelector(".fade-wrapper").classList.add("loaded");
         });
     </script>
